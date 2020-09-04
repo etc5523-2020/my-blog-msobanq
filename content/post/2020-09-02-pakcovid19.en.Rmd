@@ -101,7 +101,7 @@ Paki <- Pak %>% mutate(Month = month(date,
 
 
 ```{r Interactive table}
-dt <- datatable(Paki, options = list(pageLength = 10), class = 'cell-border stripe', filter = 'top')
+dt <- datatable(Paki, options = list(pageLength = 7), class = 'cell-border stripe', filter = 'top')
 
 frameWidget(dt)
 ```

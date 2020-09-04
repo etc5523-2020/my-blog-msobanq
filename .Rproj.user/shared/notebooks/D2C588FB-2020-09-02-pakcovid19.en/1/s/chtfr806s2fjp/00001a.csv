@@ -1,0 +1,3 @@
+"0","dt <- datatable(Paki, options = list(pageLength = 10), class = 'cell-border stripe', filter = 'top')"
+"0",""
+"0","frameWidget(dt)"

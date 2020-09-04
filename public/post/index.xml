@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts | My Take On COVID-19</title>
+    <link>/post/</link>
+      <atom:link href="/post/index.xml" rel="self" type="application/rss+xml" />
+    <description>Posts</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><lastBuildDate>Wed, 02 Sep 2020 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_512x512_fill_lanczos_center_2.png</url>
+      <title>Posts</title>
+      <link>/post/</link>
+    </image>
+    
+    <item>
+      <title>Pakistan &amp; CoVID-19</title>
+      <link>/post/pakcovid19/</link>
+      <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
+      <guid>/post/pakcovid19/</guid>
+      <description>
+&lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
+
+
+&lt;div id=&#34;data-description&#34; class=&#34;section level1&#34;&gt;
+&lt;h1&gt;DATA Description&lt;/h1&gt;
+&lt;p&gt;The data set is for the Covid-19 virus affecting all the countries, categorising the cases into confirmed cases, recovered cases and cases that resulted in death. The data set has a lot of limited variables. The data is collected from this link &lt;a href=&#34;https://github.com/RamiKrispin/coronavirus&#34;&gt;here&lt;/a&gt;. Our primary focus for the effected country will be Pakistan.&lt;/p&gt;
+&lt;div id=&#34;why-pakistan&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Why Pakistan?&lt;/h2&gt;
+&lt;p&gt;Pakistan, officially the Islamic Republic of Pakistan, is a country in South Asia. It is the world’s fifth-most populous country with a population exceeding 212.2 million. It is the 33rd-largest country by area, spanning 881,913 square kilometres (340,509 square miles).&lt;/p&gt;
+&lt;p&gt;As the worlds 5th largest populated country, the government of Pakistan had a very different approach in how to handle, and contain the virus.&lt;/p&gt;
+&lt;p&gt;First the government was hesitent in imposing the lockdown. As reported by this article &lt;a href=&#34;https://foreignpolicy.com/2020/05/11/on-coronavirus-pakistans-government-is-missing-in-action/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Then the government with pressure from the opposition international community and the people imposed the lockdown as described in &lt;a href=&#34;https://www.loc.gov/law/foreign-news/article/pakistan-smart-lockdown-imposed-across-cities-of-pakistan-as-covid-19-cases-grow-rapidly/&#34;&gt;this&lt;/a&gt; article.&lt;/p&gt;
+&lt;p&gt;Here are some important dates according &lt;a href=&#34;https://en.m.wikipedia.org/wiki/COVID-19_pandemic_in_Pakistan#:~:text=Sindh%20has%20recorded%20the%20most,lockdown%20was%20eased%20in%20phases&#34;&gt;this&lt;/a&gt; source.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;methodology&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Methodology&lt;/h2&gt;
+&lt;p&gt;We will start by filtering the loaded data, the country we want is Pakistan, so we will be filtering that. The first case in Pakistan was reported in February, so let’s get rid of additional dates. Some variables will be taken out, the province variable is empty, coordinates like latitude and longitude make no sense as all the recorded cases are from the same coordinates.&lt;/p&gt;
+&lt;p&gt;With the lockdown lifted during important events there were a lot of reservations.
+Some important dates are&lt;/p&gt;
+&lt;p&gt;13th of March (lockdown imposed)&lt;/p&gt;
+&lt;p&gt;27th of March (Eid-ul-Fitr, a one day religious festival)&lt;/p&gt;
+&lt;p&gt;24th of May (loc)&lt;/p&gt;
+&lt;p&gt;31st of July (Eid-ul-Adha, a three day religions festival)&lt;/p&gt;
+&lt;p&gt;8th of August (smart lockdown imposed)&lt;/p&gt;
+&lt;p&gt;14th of August (Independence Day)&lt;/p&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:100%;height:480px;&#34; class=&#34;widgetframe html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;url&#34;:&#34;/post/2020-09-02-pakcovid19.en_files/figure-html//widgets/widget_Interactive table.html&#34;,&#34;options&#34;:{&#34;xdomain&#34;:&#34;*&#34;,&#34;allowfullscreen&#34;:false,&#34;lazyload&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;p&gt;The table is interactive, for users to do their own research with respect to day, month, week of the year, number of cases reported, deaths reported, patients recovered. To identify the surge in numbers, especially after the above mentioned dates.&lt;/p&gt;
+&lt;table class=&#34;table table-striped&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Confirmed
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Death
+&lt;/th&gt;
+&lt;th style=&#34;text-align:left;&#34;&gt;
+Recovered
+&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Min. : 1
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Min. : 0.00
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Min. : -8
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1st Qu.: 340
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1st Qu.: 7.00
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+1st Qu.: 90
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Median : 1013
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Median : 23.00
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Median : 676
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Mean : 1730
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Mean : 36.81
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Mean : 1641
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3rd Qu.: 2721
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3rd Qu.: 60.00
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+3rd Qu.: 2060
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Max. :12073
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Max. :178.00
+&lt;/td&gt;
+&lt;td style=&#34;text-align:left;&#34;&gt;
+Max. :19772
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Confirmed Summary&lt;/strong&gt;
+Summarising Pakistan’s COVID19 cases, in confirmed cases, in a day the least number of cases that were reported is 1 and the maximum number of cases reported in a day are 12,073. The average number of confirmed cases throughout the period have been 1,730. From a range perspective, 1,013 has been the middle for reported cases in a day.&lt;/p&gt;
+&lt;p&gt;The first quartile (Q1) tells us the middle value from the smallest value which in this case is 1 and the median 1,013. In other words, the first 25% of the cases are reported lower than 340.&lt;/p&gt;
+&lt;p&gt;The third Quartile (Q3) tells us the middle value from the largest value which in this case is 12,073 and the median 1,013. In other words, the last 25% of the cases are reported higher than 2,721.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Death Summary&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Summarising Pakistan’s deaths reported due to COVID19, in deaths reported the least number of deaths reported is 0 on a day, and the maximum number of deaths reported on a day is 178. The average deaths or the mean of deaths reported throughout the period is 36. The mid-range on the number of deaths is at 23.&lt;/p&gt;
+&lt;p&gt;The first quartile (Q1) tells us the middle value from the smallest value which in this case is 0 and the median 23. In other words, the first 25% of the deaths reported are lower than 7.&lt;/p&gt;
+&lt;p&gt;The third Quartile (Q3) tells us the middle value from the largest value which in this case is 178 and the median 23. In other words, the last 25% of the cases are reported higher than 60.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recovered Summary&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Summarizing the recovered COVID19 cases in Pakistan. The least number of recovered cases are a bit different, the least number of patients that recovered in a day are -8 which means that the cases reported were untrue, follow &lt;a href=&#34;https://yen.com.gh/150877-covid-19-update-8-affected-persons-ghana-allegedly-recovered.html&#34;&gt;this&lt;/a&gt; link to get a better understand of the interpretation. The maximum number of recovered cases reported in a day are 19,772. The average recovery of covid19 patients recovered throughout the period is 1,641.&lt;/p&gt;
+&lt;p&gt;The first quartile (Q1) tells us the middle value from the smallest value which in this case is -8 and the median 676. In other words, the first 25% of the deaths reported are lower than 90.&lt;/p&gt;
+&lt;p&gt;The third Quartile (Q3) tells us the middle value from the largest value which in this case is 19,772 and the median 676. In other words, the last 25% of the cases are reported higher than 2,060.&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

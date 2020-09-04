@@ -1,0 +1,197 @@
+---
+title: "tidying up here"
+author: "Muhammad Soban Qasim"
+date: "26/08/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidytuesdayR)
+library(tidyr)
+library(ggplot2)
+library(dplyr)
+library(ggmap)
+library(rgdal)
+library(maptools)
+library(plyr)
+library(rgeos)
+library(plotly)
+library(mapproj)
+library(leaflet)
+library(tmaptools)
+library(sf)
+library(broom)
+library(kableExtra)
+```
+
+
+```{r}
+RP <- tidytuesdayR::tt_load(2020, week = 30) 
+```
+
+
+
+
+```{r}
+x <- RP$animal_complaints 
+
+y <- RP$animal_outcomes 
+
+z <- RP$brisbane_complaints
+
+```
+
+
+##Question 4 Extra
+
+```{r}
+x1 <- RP$animal_complaints %>% 
+  select(`Animal Type`) %>% 
+  count() 
+
+```
+
+```{r}
+p4e <- x1 %>% ggplot(aes(x = Animal.Type, 
+                 y = freq)) + 
+  geom_bar(stat="identity", 
+           fill="yellow")
+
+ggplotly(p4e)
+```
+
+##Question2
+
+```{r}
+y  %>% group_by( year,
+                 outcome, 
+                 animal_type) %>%                         
+  summarise_at(vars(ACT, 
+                    NSW, 
+                    NT, 
+                    QLD, 
+                    SA, 
+                    TAS, 
+                    VIC),  
+               list( sum)) 
+
+q2 <- y %>% filter(outcome == "Euthanized") %>% 
+  select(animal_type, 
+         ACT, 
+         NSW, 
+         NT, 
+         QLD, 
+         SA, 
+         TAS, 
+         VIC, 
+         WA) %>%  
+  group_by(animal_type) %>%                         
+  summarise_at(vars(ACT, 
+                    NSW, 
+                    NT, 
+                    QLD, 
+                    SA, 
+                    TAS, 
+                    VIC, 
+                    WA),            
+               list(" " = sum)) 
+
+q2$total_animals_euthanised = rowSums(q2[,c(-1)], na.rm=TRUE)
+q2
+```
+
+```{r}
+options(scipen=999)
+ p2 <- ggplot(q2,
+              aes(x =reorder(animal_type, 
+                             -total_animals_euthanised), 
+                  y =  total_animals_euthanised)) + 
+   geom_bar(stat="identity", 
+            fill="tomato3") +   
+   labs(subtitle="WHich animal is the most euthanized", 
+       y="Count", 
+       x="Animal", 
+       title="Australia Euthanization count", 
+       caption = "Australia Euthanization rate") + 
+  theme(axis.text.x = element_text(angle=45, vjust=0.9)) + 
+   ylim(c(0, 600000)) 
+
+ggplotly(p2)
+```
+
+##Question1
+
+
+```{r}
+library(sf)
+aus_map <- readRDS("oz_map.rds") 
+
+```
+
+```{r}
+q1 <- y %>% select(-year, 
+                   -animal_type) %>% 
+  group_by(outcome) %>% 
+  summarise_at(vars(ACT, 
+                    NSW, 
+                    NT, 
+                    QLD, 
+                    SA, 
+                    TAS, 
+                    VIC, 
+                    WA),  
+               list( sum),na.rm=TRUE) 
+
+
+
+
+q11 <-  pivot_longer(q1, `ACT`:`WA`, 
+                     names_to = "State", 
+                     values_to = "outcomes") %>% 
+  pivot_wider(names_from = outcome, 
+              values_from = outcomes)
+
+q11 <- q11 %>%  mutate(good_outcome = (rowSums(q11[,c(-1,-3)]))/rowSums(q11[,c(-1)])*100)
+
+                                                                                                    q12<- q11 %>% select(State, 
+                                                                                                                         good_outcome)                                                    
+```
+
+
+
+```{r}
+aus_map_states <- aus_map %>% 
+  left_join(q12, by = c("state_abb" = "State")) 
+
+```
+
+```{r, message=FALSE, warning=FALSE,fig.width=10, fig.height=8}
+state_plot <- ggplot(aus_map_states, 
+                     aes(x = longitude, 
+                         y = latitude, 
+                         fill = good_outcome)) + 
+  geom_sf() + aes(x = longitude, 
+                  y = latitude) +   
+  labs(subtitle="Animals saved by RSPCA", 
+       y=" ", 
+       x=" ", 
+       title="Animal survival rate", 
+       caption = "Australia Euthanization rate")+ 
+  geom_sf_text(aes(label = state), 
+               colour = "white")
+  scale_fill_viridis_c( "alpha = 1",
+  "begin = 0",
+  "end = 100",
+  "direction = 1",
+  option = "D",
+  values = NULL,
+  space = "Lab",
+  na.value = "black",
+  guide = "colourbar",
+  aesthetics = "fill"
+) 
+  
+state_plot
+```
+

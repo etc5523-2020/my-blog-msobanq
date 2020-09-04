@@ -1,0 +1,82 @@
+"0","knitr::opts_chunk$set(echo = FALSE, warning =  FALSE)"
+"0","library(coronavirus)"
+"0","library(tidyr)"
+"0","library(dplyr)"
+"2","
+Attaching package: ‘dplyr’
+
+"
+"2","The following objects are masked from ‘package:stats’:
+
+    filter, lag
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    intersect, setdiff, setequal, union
+
+"
+"0","library(lubridate)"
+"2","
+Attaching package: ‘lubridate’
+
+"
+"2","The following objects are masked from ‘package:base’:
+
+    date, intersect, setdiff, union
+
+"
+"0","library(reactable)"
+"2","Registered S3 method overwritten by 'htmlwidgets':
+  method           from         
+  print.htmlwidget tools:rstudio
+"
+"0","library(htmltools)"
+"0","library(kableExtra)"
+"2","
+Attaching package: ‘kableExtra’
+
+"
+"2","The following object is masked from ‘package:dplyr’:
+
+    group_rows
+
+"
+"0","library(DT)"
+"2","package ‘DT’ was built under R version 4.0.2"
+"0","library(ggplot2)"
+"2","package ‘ggplot2’ was built under R version 4.0.2"
+"2","Need help? Try Stackoverflow: https://stackoverflow.com/tags/ggplot2
+"
+"0","library(plotly)"
+"2","package ‘plotly’ was built under R version 4.0.2"
+"2","Registered S3 method overwritten by 'data.table':
+  method           from
+  print.data.table     
+"
+"2","
+Attaching package: ‘plotly’
+
+"
+"2","The following object is masked from ‘package:ggplot2’:
+
+    last_plot
+
+"
+"2","The following object is masked from ‘package:stats’:
+
+    filter
+
+"
+"2","The following object is masked from ‘package:graphics’:
+
+    layout
+
+"
+"0","library(widgetframe)"
+"2","package ‘widgetframe’ was built under R version 4.0.2"
+"2","Loading required package: htmlwidgets
+"
+"2","package ‘htmlwidgets’ was built under R version 4.0.2"
+"0","library(bookdown)"
+"2","package ‘bookdown’ was built under R version 4.0.2"

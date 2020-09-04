@@ -1,0 +1,210 @@
+---
+title: Pakistan & CoVID-19
+author: Muhammad Soban Qasim
+date: '2020-09-02'
+slug: pakcovid19
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-09-02T15:40:59+10:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning =  FALSE)
+library(coronavirus)
+library(tidyr)
+library(dplyr)
+library(lubridate)
+library(reactable)
+library(htmltools)
+library(kableExtra)
+library(DT)
+library(ggplot2)
+library(plotly)
+library(widgetframe)
+library(bookdown)
+```
+
+
+# DATA Description 
+
+The data set is for the Covid-19 virus affecting all the countries, categorising the cases into confirmed cases, recovered cases and cases that resulted in death. The data set has a lot of limited variables. The data is collected from this link [here](https://github.com/RamiKrispin/coronavirus). Our primary focus for the effected country will be Pakistan. 
+
+## Why Pakistan?
+
+Pakistan, officially the Islamic Republic of Pakistan, is a country in South Asia. It is the world's fifth-most populous country with a population exceeding 212.2 million. It is the 33rd-largest country by area, spanning 881,913 square kilometres (340,509 square miles). 
+
+As the worlds 5th largest populated country, the government of Pakistan had a very different approach in how to handle, and contain the virus. 
+
+First the government was hesitent in imposing the lockdown. As reported by this article [here](https://foreignpolicy.com/2020/05/11/on-coronavirus-pakistans-government-is-missing-in-action/).
+
+Then the government with pressure from the opposition international community and the people imposed the lockdown as described in [this](https://www.loc.gov/law/foreign-news/article/pakistan-smart-lockdown-imposed-across-cities-of-pakistan-as-covid-19-cases-grow-rapidly/) article.
+
+Here are some important dates according [this](https://en.m.wikipedia.org/wiki/COVID-19_pandemic_in_Pakistan#:~:text=Sindh%20has%20recorded%20the%20most,lockdown%20was%20eased%20in%20phases) source. 
+
+
+
+## Methodology 
+
+We will start by filtering the loaded data, the country we want is Pakistan, so we will be filtering that. The first case in Pakistan was reported in February, so let's get rid of additional dates. Some variables will be taken out, the province variable is empty, coordinates like latitude and longitude make no sense as all the recorded cases are from the same coordinates.
+
+
+```{r filtering}
+Pak <- coronavirus %>%  filter(country == "Pakistan") %>% 
+  select(date, country, type, cases) %>% 
+  filter(date > "2020-01-31") 
+```
+
+With the lockdown lifted during important events there were a lot of reservations. 
+Some important dates are 
+
+13th of March (lockdown imposed)
+
+27th of March (Eid-ul-Fitr, a one day religious festival)
+
+24th of May (loc)
+
+31st of July (Eid-ul-Adha, a three day religions festival)
+
+8th of August (smart lockdown imposed)
+
+14th of August (Independence Day)
+
+```{r wrangling}
+Paki <- Pak %>% mutate(Month = month(date, 
+                       label = TRUE, 
+                       abbr = TRUE)) %>% 
+  mutate(Week = week(date))  %>%
+  mutate(Day = day(date))  %>%
+  pivot_wider(names_from = type, 
+                            values_from = cases)  %>% 
+  filter(confirmed > "0") %>%
+  select(-date, - country) %>%
+  rename(Confirmed = "confirmed", 
+         Death = "death", 
+         Recovered = "recovered") 
+ 
+
+```
+
+
+
+
+
+
+```{r Interactive table}
+dt <- datatable(Paki, options = list(pageLength = 10), class = 'cell-border stripe', filter = 'top')
+
+frameWidget(dt)
+```
+
+
+
+The table is interactive, for users to do their own research with respect to day, month, week of the year, number of cases reported, deaths reported, patients recovered. To identify the surge in numbers, especially after the above mentioned dates.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+```{r summary table}
+Pakis <- Paki %>% select(Confirmed, Death, Recovered)
+
+ summary(Pakis) %>% kable() %>% kable_styling(bootstrap_options = "striped",
+  full_width = NULL,
+  position = "center",
+  font_size = NULL,
+  row_label_position = "l",
+  repeat_header_continued = FALSE,
+  stripe_color = "gray!6",
+  stripe_index = NULL,
+  table.envir = "table",
+  fixed_thead = FALSE)
+```
+
+__Confirmed Summary__
+Summarising Pakistan's COVID19 cases, in confirmed cases, in a day the least number of cases that were reported is 1 and the maximum number of cases reported in a day are 12,073. The average number of confirmed cases throughout the period have been 1,730. From a range perspective, 1,013 has been the middle for reported cases in a day.
+
+The first quartile (Q1) tells us the middle value from the smallest value which in this case is 1 and the median 1,013. In other words, the first 25% of the cases are reported lower than 340.
+
+The third Quartile (Q3) tells us the middle value from the largest value which in this case is 12,073 and the median 1,013. In other words, the last 25% of the cases are reported higher than 2,721.
+
+__Death Summary__
+
+Summarising Pakistan's deaths reported due to COVID19, in deaths reported the least number of deaths reported is 0 on a day, and the maximum number of deaths reported on a day is 178. The average deaths or the mean of deaths reported throughout the period is 36. The mid-range on the number of deaths is at 23. 
+
+The first quartile (Q1) tells us the middle value from the smallest value which in this case is 0 and the median 23. In other words, the first 25% of the deaths reported are lower than 7.
+
+The third Quartile (Q3) tells us the middle value from the largest value which in this case is 178 and the median 23. In other words, the last 25% of the cases are reported higher than 60.
+
+__Recovered Summary__
+
+Summarizing the recovered COVID19 cases in Pakistan. The least number of recovered cases are a bit different, the least number of patients that recovered in a day are -8 which means that the cases reported were untrue, follow [this](https://yen.com.gh/150877-covid-19-update-8-affected-persons-ghana-allegedly-recovered.html) link to get a better understand of the interpretation. The maximum number of recovered cases reported in a day are 19,772. The average recovery of covid19 patients recovered throughout the period is 1,641.
+
+The first quartile (Q1) tells us the middle value from the smallest value which in this case is -8 and the median 676. In other words, the first 25% of the deaths reported are lower than 90.
+
+The third Quartile (Q3) tells us the middle value from the largest value which in this case is 19,772 and the median 676. In other words, the last 25% of the cases are reported higher than 2,060.

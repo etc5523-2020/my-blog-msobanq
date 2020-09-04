@@ -70,11 +70,11 @@ Some important dates are
 
 27th of March (Eid-ul-Fitr, a one day religious festival)
 
-24th of May (loc)
+24th of May (Smart lockdown imposed, only infected areas under lockdown)
 
 31st of July (Eid-ul-Adha, a three day religions festival)
 
-8th of August (smart lockdown imposed)
+8th of August (lockdown lifted)
 
 14th of August (Independence Day)
 
@@ -174,7 +174,7 @@ The table is interactive, for users to do their own research with respect to day
 ```{r summary table}
 Pakis <- Paki %>% select(Confirmed, Death, Recovered)
 
- summary(Pakis) %>% kable() %>% kable_styling(bootstrap_options = "striped",
+ summary(Pakis) %>% kable(table.attr = "style = \"color: #00FA9A;background-color:#1E90FF;\"") %>% kable_styling(bootstrap_options = "striped",
   full_width = NULL,
   position = "center",
   font_size = NULL,

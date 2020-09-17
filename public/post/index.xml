@@ -13,151 +13,237 @@
     </image>
     
     <item>
-      <title>Pakistan &amp; CoVID-19</title>
-      <link>/post/pakcovid19/</link>
+      <title>Romania &amp; CoVID-19</title>
+      <link>/post/romania/pakcovid19/</link>
       <pubDate>Wed, 02 Sep 2020 00:00:00 +0000</pubDate>
-      <guid>/post/pakcovid19/</guid>
+      <guid>/post/romania/pakcovid19/</guid>
       <description>
 &lt;script src=&#34;/rmarkdown-libs/htmlwidgets/htmlwidgets.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/pymjs/pym.v1.js&#34;&gt;&lt;/script&gt;
-&lt;script src=&#34;/rmarkdown-libs/widgetframe-binding/widgetframe.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/plotly-binding/plotly.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/typedarray/typedarray.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;/rmarkdown-libs/jquery/jquery.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/crosstalk/css/crosstalk.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/crosstalk/js/crosstalk.min.js&#34;&gt;&lt;/script&gt;
+&lt;link href=&#34;/rmarkdown-libs/plotly-htmlwidgets-css/plotly-htmlwidgets.css&#34; rel=&#34;stylesheet&#34; /&gt;
+&lt;script src=&#34;/rmarkdown-libs/plotly-main/plotly-latest.min.js&#34;&gt;&lt;/script&gt;
 &lt;script src=&#34;/rmarkdown-libs/kePrint/kePrint.js&#34;&gt;&lt;/script&gt;
 
 
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;c19 &amp;lt;- read.csv(&amp;quot;owid-covid-data.csv&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
 &lt;div id=&#34;data-description&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;DATA Description&lt;/h1&gt;
-&lt;p&gt;The data set is for the Covid-19 virus affecting all the countries, categorising the cases into confirmed cases, recovered cases and cases that resulted in death. The data set has a lot of limited variables. The data is collected from this link &lt;a href=&#34;https://github.com/RamiKrispin/coronavirus&#34;&gt;here&lt;/a&gt;. Our primary focus for the effected country will be Pakistan. &lt;span class=&#34;citation&#34;&gt;(&lt;span class=&#34;citeproc-not-found&#34; data-reference-id=&#34;RamiKrispin&#34;&gt;&lt;strong&gt;???&lt;/strong&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/p&gt;
-&lt;div id=&#34;why-pakistan&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Why Pakistan?&lt;/h2&gt;
-&lt;p&gt;Pakistan, officially the Islamic Republic of Pakistan, is a country in South Asia. It is the world’s fifth-most populous country with a population exceeding 212.2 million. It is the 33rd-largest country by area, spanning 881,913 square kilometres (340,509 square miles).&lt;/p&gt;
-&lt;p&gt;As the worlds 5th largest populated country, the government of Pakistan had a very different approach in how to handle, and contain the virus.&lt;/p&gt;
-&lt;p&gt;First the government was hesitent in imposing the lockdown. As reported by this article &lt;a href=&#34;https://foreignpolicy.com/2020/05/11/on-coronavirus-pakistans-government-is-missing-in-action/&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Then the government with pressure from the opposition international community and the people imposed the lockdown as described in &lt;a href=&#34;https://www.loc.gov/law/foreign-news/article/pakistan-smart-lockdown-imposed-across-cities-of-pakistan-as-covid-19-cases-grow-rapidly/&#34;&gt;this&lt;/a&gt; article.&lt;/p&gt;
-&lt;p&gt;Here are some important dates according &lt;a href=&#34;https://en.m.wikipedia.org/wiki/COVID-19_pandemic_in_Pakistan#:~:text=Sindh%20has%20recorded%20the%20most,lockdown%20was%20eased%20in%20phases&#34;&gt;this&lt;/a&gt; source.&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id=&#34;methodology&#34; class=&#34;section level2&#34;&gt;
-&lt;h2&gt;Methodology&lt;/h2&gt;
-&lt;p&gt;We will start by filtering the loaded data, the country we want is Pakistan, so we will be filtering that. The first case in Pakistan was reported in February, so let’s get rid of additional dates. Some variables will be taken out, the province variable is empty, coordinates like latitude and longitude make no sense as all the recorded cases are from the same coordinates.&lt;/p&gt;
-&lt;p&gt;With the lockdown lifted during important events there were a lot of reservations.
-Some important dates are&lt;/p&gt;
-&lt;p&gt;13th of March (lockdown imposed)&lt;/p&gt;
-&lt;p&gt;27th of March (Eid-ul-Fitr, a one day religious festival)&lt;/p&gt;
-&lt;p&gt;24th of May (Smart lockdown imposed, only affected areas under lockdown)&lt;/p&gt;
-&lt;p&gt;31st of July (Eid-ul-Adha, a three day religions festival)&lt;/p&gt;
-&lt;p&gt;8th of August (lockdown lifted)&lt;/p&gt;
-&lt;p&gt;14th of August (Independence Day)&lt;/p&gt;
-&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:100%;height:480px;&#34; class=&#34;widgetframe html-widget&#34;&gt;&lt;/div&gt;
-&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;url&#34;:&#34;/post/2020-09-02-pakcovid19.en_files/figure-html//widgets/widget_Interactive table.html&#34;,&#34;options&#34;:{&#34;xdomain&#34;:&#34;*&#34;,&#34;allowfullscreen&#34;:false,&#34;lazyload&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
-&lt;p&gt;The table is interactive, for users to do their own research with respect to day, month, week of the year, number of cases reported, deaths reported, patients recovered. To identify the surge in numbers, especially after the above mentioned dates.&lt;/p&gt;
-&lt;table style=&#34;color: #55D24C;background-color: #4339D1; margin-left: auto; margin-right: auto;&#34; class=&#34;table&#34;&gt;
+&lt;p&gt;The data sets used are of the COVID-19 virus, containing data on all countries. The first data set contains the total cases, new cases, cases per million of the countries population, total deaths, new deaths, new tests, total tests and stingency index. The data set has extensive variables, however, not all are used in this blog. The data set was obtained form &lt;a href=&#34;https://ourworldindata.org/coronavirus-data&#34;&gt;here&lt;/a&gt;. The first set although extensive, did not conatin the varaible of cases recovered. A second data set was used to obtain the cases recovered from &lt;a href=&#34;https://github.com/RamiKrispin/coronavirus&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div id=&#34;why-romania&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Why Romania?&lt;/h2&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Romania &amp;lt;- c19 %&amp;gt;% filter(location == &amp;quot;Romania&amp;quot;) %&amp;gt;% 
+  select(-iso_code, 
+         -continent, 
+         -location) %&amp;gt;% 
+  filter(date &amp;gt;     &amp;quot;2020-02-26&amp;quot;) %&amp;gt;% mutate(date = as.Date(date))&lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;Romi &amp;lt;- c19 %&amp;gt;% filter(location == &amp;quot;Romania&amp;quot;) %&amp;gt;% 
+  select( date, new_cases, new_tests) %&amp;gt;% 
+  filter(date &amp;gt;     &amp;quot;2020-02-29&amp;quot;)  %&amp;gt;% mutate(Month = month(date,label = TRUE,abbr = FALSE)) %&amp;gt;% na.omit() &lt;/code&gt;&lt;/pre&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;rp &amp;lt;- Romi %&amp;gt;% ggplot( aes(x= new_tests, 
+                           y = new_cases, 
+                           color = Month)) + 
+  geom_point() # + facet_wrap(~ month(date)) + geom_smooth()
+rp2 &amp;lt;- rp + facet_wrap(~ Month) 
+ggplotly(rp)&lt;/code&gt;&lt;/pre&gt;
+&lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:672px;height:480px;&#34; class=&#34;plotly html-widget&#34;&gt;&lt;/div&gt;
+&lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;data&#34;:[{&#34;x&#34;:[624,384,276,503,442,520,303,3311,631,1052,1256,1401,1842,1532,1455,2210,1797,1643,1551],&#34;y&#34;:[19,25,24,26,45,33,43,17,31,59,66,143,186,144,123,263,160,308,192],&#34;text&#34;:[&#34;new_tests:   624&lt;br /&gt;new_cases:   19&lt;br /&gt;Month: March&#34;,&#34;new_tests:   384&lt;br /&gt;new_cases:   25&lt;br /&gt;Month: March&#34;,&#34;new_tests:   276&lt;br /&gt;new_cases:   24&lt;br /&gt;Month: March&#34;,&#34;new_tests:   503&lt;br /&gt;new_cases:   26&lt;br /&gt;Month: March&#34;,&#34;new_tests:   442&lt;br /&gt;new_cases:   45&lt;br /&gt;Month: March&#34;,&#34;new_tests:   520&lt;br /&gt;new_cases:   33&lt;br /&gt;Month: March&#34;,&#34;new_tests:   303&lt;br /&gt;new_cases:   43&lt;br /&gt;Month: March&#34;,&#34;new_tests:  3311&lt;br /&gt;new_cases:   17&lt;br /&gt;Month: March&#34;,&#34;new_tests:   631&lt;br /&gt;new_cases:   31&lt;br /&gt;Month: March&#34;,&#34;new_tests:  1052&lt;br /&gt;new_cases:   59&lt;br /&gt;Month: March&#34;,&#34;new_tests:  1256&lt;br /&gt;new_cases:   66&lt;br /&gt;Month: March&#34;,&#34;new_tests:  1401&lt;br /&gt;new_cases:  143&lt;br /&gt;Month: March&#34;,&#34;new_tests:  1842&lt;br /&gt;new_cases:  186&lt;br /&gt;Month: March&#34;,&#34;new_tests:  1532&lt;br /&gt;new_cases:  144&lt;br /&gt;Month: March&#34;,&#34;new_tests:  1455&lt;br /&gt;new_cases:  123&lt;br /&gt;Month: March&#34;,&#34;new_tests:  2210&lt;br /&gt;new_cases:  263&lt;br /&gt;Month: March&#34;,&#34;new_tests:  1797&lt;br /&gt;new_cases:  160&lt;br /&gt;Month: March&#34;,&#34;new_tests:  1643&lt;br /&gt;new_cases:  308&lt;br /&gt;Month: March&#34;,&#34;new_tests:  1551&lt;br /&gt;new_cases:  192&lt;br /&gt;Month: March&#34;],&#34;type&#34;:&#34;scatter&#34;,&#34;mode&#34;:&#34;markers&#34;,&#34;marker&#34;:{&#34;autocolorscale&#34;:false,&#34;color&#34;:&#34;rgba(68,1,84,1)&#34;,&#34;opacity&#34;:1,&#34;size&#34;:5.66929133858268,&#34;symbol&#34;:&#34;circle&#34;,&#34;line&#34;:{&#34;width&#34;:1.88976377952756,&#34;color&#34;:&#34;rgba(68,1,84,1)&#34;}},&#34;hoveron&#34;:&#34;points&#34;,&#34;name&#34;:&#34;March&#34;,&#34;legendgroup&#34;:&#34;March&#34;,&#34;showlegend&#34;:true,&#34;xaxis&#34;:&#34;x&#34;,&#34;yaxis&#34;:&#34;y&#34;,&#34;hoverinfo&#34;:&#34;text&#34;,&#34;frame&#34;:null},{&#34;x&#34;:[1955,1874,3174,4435,2531,2364,2591,3629,4595,3628,3842,3056,4876,2893,4730,4802,6176,5186,2620,4880,3061,4805,6979,8266,5043,9873,7316,6475,16684,8381],&#34;y&#34;:[293,215,278,445,430,251,193,360,344,441,265,523,310,333,246,337,491,360,351,328,190,306,468,386,321,218,401,303,277,362],&#34;text&#34;:[&#34;new_tests:  1955&lt;br /&gt;new_cases:  293&lt;br /&gt;Month: April&#34;,&#34;new_tests:  1874&lt;br /&gt;new_cases:  215&lt;br /&gt;Month: April&#34;,&#34;new_tests:  3174&lt;br /&gt;new_cases:  278&lt;br /&gt;Month: April&#34;,&#34;new_tests:  4435&lt;br /&gt;new_cases:  445&lt;br /&gt;Month: April&#34;,&#34;new_tests:  2531&lt;br /&gt;new_cases:  430&lt;br /&gt;Month: April&#34;,&#34;new_tests:  2364&lt;br /&gt;new_cases:  251&lt;br /&gt;Month: April&#34;,&#34;new_tests:  2591&lt;br /&gt;new_cases:  193&lt;br /&gt;Month: April&#34;,&#34;new_tests:  3629&lt;br /&gt;new_cases:  360&lt;br /&gt;Month: April&#34;,&#34;new_tests:  4595&lt;br /&gt;new_cases:  344&lt;br /&gt;Month: April&#34;,&#34;new_tests:  3628&lt;br /&gt;new_cases:  441&lt;br /&gt;Month: April&#34;,&#34;new_tests:  3842&lt;br /&gt;new_cases:  265&lt;br /&gt;Month: April&#34;,&#34;new_tests:  3056&lt;br /&gt;new_cases:  523&lt;br /&gt;Month: April&#34;,&#34;new_tests:  4876&lt;br /&gt;new_cases:  310&lt;br /&gt;Month: April&#34;,&#34;new_tests:  2893&lt;br /&gt;new_cases:  333&lt;br /&gt;Month: April&#34;,&#34;new_tests:  4730&lt;br /&gt;new_cases:  246&lt;br /&gt;Month: April&#34;,&#34;new_tests:  4802&lt;br /&gt;new_cases:  337&lt;br /&gt;Month: April&#34;,&#34;new_tests:  6176&lt;br /&gt;new_cases:  491&lt;br /&gt;Month: April&#34;,&#34;new_tests:  5186&lt;br /&gt;new_cases:  360&lt;br /&gt;Month: April&#34;,&#34;new_tests:  2620&lt;br /&gt;new_cases:  351&lt;br /&gt;Month: April&#34;,&#34;new_tests:  4880&lt;br /&gt;new_cases:  328&lt;br /&gt;Month: April&#34;,&#34;new_tests:  3061&lt;br /&gt;new_cases:  190&lt;br /&gt;Month: April&#34;,&#34;new_tests:  4805&lt;br /&gt;new_cases:  306&lt;br /&gt;Month: April&#34;,&#34;new_tests:  6979&lt;br /&gt;new_cases:  468&lt;br /&gt;Month: April&#34;,&#34;new_tests:  8266&lt;br /&gt;new_cases:  386&lt;br /&gt;Month: April&#34;,&#34;new_tests:  5043&lt;br /&gt;new_cases:  321&lt;br /&gt;Month: April&#34;,&#34;new_tests:  9873&lt;br /&gt;new_cases:  218&lt;br /&gt;Month: April&#34;,&#34;new_tests:  7316&lt;br /&gt;new_cases:  401&lt;br /&gt;Month: April&#34;,&#34;new_tests:  6475&lt;br /&gt;new_cases:  303&lt;br /&gt;Month: April&#34;,&#34;new_tests: 16684&lt;br /&gt;new_cases:  277&lt;br /&gt;Month: April&#34;,&#34;new_tests:  8381&lt;br /&gt;new_cases:  362&lt;br /&gt;Month: April&#34;],&#34;type&#34;:&#34;scatter&#34;,&#34;mode&#34;:&#34;markers&#34;,&#34;marker&#34;:{&#34;autocolorscale&#34;:false,&#34;color&#34;:&#34;rgba(68,58,131,1)&#34;,&#34;opacity&#34;:1,&#34;size&#34;:5.66929133858268,&#34;symbol&#34;:&#34;circle&#34;,&#34;line&#34;:{&#34;width&#34;:1.88976377952756,&#34;color&#34;:&#34;rgba(68,58,131,1)&#34;}},&#34;hoveron&#34;:&#34;points&#34;,&#34;name&#34;:&#34;April&#34;,&#34;legendgroup&#34;:&#34;April&#34;,&#34;showlegend&#34;:true,&#34;xaxis&#34;:&#34;x&#34;,&#34;yaxis&#34;:&#34;y&#34;,&#34;hoverinfo&#34;:&#34;text&#34;,&#34;frame&#34;:null},{&#34;x&#34;:[8314,6852,4968,3560,6774,11297,9474,10667,10776,8693,5470,6964,8621,8413,8384,9133,6673,3214,8453,10413,9979,10181,8919,6916,8709,8537,11835,12437,11451,4368,13378],&#34;y&#34;:[262,327,165,431,349,325,270,392,312,320,231,226,190,224,245,190,267,167,165,155,196,198,127,145,213,213,146,165,197,191,151],&#34;text&#34;:[&#34;new_tests:  8314&lt;br /&gt;new_cases:  262&lt;br /&gt;Month: May&#34;,&#34;new_tests:  6852&lt;br /&gt;new_cases:  327&lt;br /&gt;Month: May&#34;,&#34;new_tests:  4968&lt;br /&gt;new_cases:  165&lt;br /&gt;Month: May&#34;,&#34;new_tests:  3560&lt;br /&gt;new_cases:  431&lt;br /&gt;Month: May&#34;,&#34;new_tests:  6774&lt;br /&gt;new_cases:  349&lt;br /&gt;Month: May&#34;,&#34;new_tests: 11297&lt;br /&gt;new_cases:  325&lt;br /&gt;Month: May&#34;,&#34;new_tests:  9474&lt;br /&gt;new_cases:  270&lt;br /&gt;Month: May&#34;,&#34;new_tests: 10667&lt;br /&gt;new_cases:  392&lt;br /&gt;Month: May&#34;,&#34;new_tests: 10776&lt;br /&gt;new_cases:  312&lt;br /&gt;Month: May&#34;,&#34;new_tests:  8693&lt;br /&gt;new_cases:  320&lt;br /&gt;Month: May&#34;,&#34;new_tests:  5470&lt;br /&gt;new_cases:  231&lt;br /&gt;Month: May&#34;,&#34;new_tests:  6964&lt;br /&gt;new_cases:  226&lt;br /&gt;Month: May&#34;,&#34;new_tests:  8621&lt;br /&gt;new_cases:  190&lt;br /&gt;Month: May&#34;,&#34;new_tests:  8413&lt;br /&gt;new_cases:  224&lt;br /&gt;Month: May&#34;,&#34;new_tests:  8384&lt;br /&gt;new_cases:  245&lt;br /&gt;Month: May&#34;,&#34;new_tests:  9133&lt;br /&gt;new_cases:  190&lt;br /&gt;Month: May&#34;,&#34;new_tests:  6673&lt;br /&gt;new_cases:  267&lt;br /&gt;Month: May&#34;,&#34;new_tests:  3214&lt;br /&gt;new_cases:  167&lt;br /&gt;Month: May&#34;,&#34;new_tests:  8453&lt;br /&gt;new_cases:  165&lt;br /&gt;Month: May&#34;,&#34;new_tests: 10413&lt;br /&gt;new_cases:  155&lt;br /&gt;Month: May&#34;,&#34;new_tests:  9979&lt;br /&gt;new_cases:  196&lt;br /&gt;Month: May&#34;,&#34;new_tests: 10181&lt;br /&gt;new_cases:  198&lt;br /&gt;Month: May&#34;,&#34;new_tests:  8919&lt;br /&gt;new_cases:  127&lt;br /&gt;Month: May&#34;,&#34;new_tests:  6916&lt;br /&gt;new_cases:  145&lt;br /&gt;Month: May&#34;,&#34;new_tests:  8709&lt;br /&gt;new_cases:  213&lt;br /&gt;Month: May&#34;,&#34;new_tests:  8537&lt;br /&gt;new_cases:  213&lt;br /&gt;Month: May&#34;,&#34;new_tests: 11835&lt;br /&gt;new_cases:  146&lt;br /&gt;Month: May&#34;,&#34;new_tests: 12437&lt;br /&gt;new_cases:  165&lt;br /&gt;Month: May&#34;,&#34;new_tests: 11451&lt;br /&gt;new_cases:  197&lt;br /&gt;Month: May&#34;,&#34;new_tests:  4368&lt;br /&gt;new_cases:  191&lt;br /&gt;Month: May&#34;,&#34;new_tests: 13378&lt;br /&gt;new_cases:  151&lt;br /&gt;Month: May&#34;],&#34;type&#34;:&#34;scatter&#34;,&#34;mode&#34;:&#34;markers&#34;,&#34;marker&#34;:{&#34;autocolorscale&#34;:false,&#34;color&#34;:&#34;rgba(49,104,142,1)&#34;,&#34;opacity&#34;:1,&#34;size&#34;:5.66929133858268,&#34;symbol&#34;:&#34;circle&#34;,&#34;line&#34;:{&#34;width&#34;:1.88976377952756,&#34;color&#34;:&#34;rgba(49,104,142,1)&#34;}},&#34;hoveron&#34;:&#34;points&#34;,&#34;name&#34;:&#34;May&#34;,&#34;legendgroup&#34;:&#34;May&#34;,&#34;showlegend&#34;:true,&#34;xaxis&#34;:&#34;x&#34;,&#34;yaxis&#34;:&#34;y&#34;,&#34;hoverinfo&#34;:&#34;text&#34;,&#34;frame&#34;:null},{&#34;x&#34;:[4055,13445,11932,11626,6792,2915,5180,9269,11055,7926,3682,9360,11715,12343,11075,11226,6333,4044,8948,11824,1877,17650,4779,10424],&#34;y&#34;:[124,152,238,196,187,189,125,145,196,275,320,166,250,345,320,320,330,315,246,460,411,325,291,269],&#34;text&#34;:[&#34;new_tests:  4055&lt;br /&gt;new_cases:  124&lt;br /&gt;Month: June&#34;,&#34;new_tests: 13445&lt;br /&gt;new_cases:  152&lt;br /&gt;Month: June&#34;,&#34;new_tests: 11932&lt;br /&gt;new_cases:  238&lt;br /&gt;Month: June&#34;,&#34;new_tests: 11626&lt;br /&gt;new_cases:  196&lt;br /&gt;Month: June&#34;,&#34;new_tests:  6792&lt;br /&gt;new_cases:  187&lt;br /&gt;Month: June&#34;,&#34;new_tests:  2915&lt;br /&gt;new_cases:  189&lt;br /&gt;Month: June&#34;,&#34;new_tests:  5180&lt;br /&gt;new_cases:  125&lt;br /&gt;Month: June&#34;,&#34;new_tests:  9269&lt;br /&gt;new_cases:  145&lt;br /&gt;Month: June&#34;,&#34;new_tests: 11055&lt;br /&gt;new_cases:  196&lt;br /&gt;Month: June&#34;,&#34;new_tests:  7926&lt;br /&gt;new_cases:  275&lt;br /&gt;Month: June&#34;,&#34;new_tests:  3682&lt;br /&gt;new_cases:  320&lt;br /&gt;Month: June&#34;,&#34;new_tests:  9360&lt;br /&gt;new_cases:  166&lt;br /&gt;Month: June&#34;,&#34;new_tests: 11715&lt;br /&gt;new_cases:  250&lt;br /&gt;Month: June&#34;,&#34;new_tests: 12343&lt;br /&gt;new_cases:  345&lt;br /&gt;Month: June&#34;,&#34;new_tests: 11075&lt;br /&gt;new_cases:  320&lt;br /&gt;Month: June&#34;,&#34;new_tests: 11226&lt;br /&gt;new_cases:  320&lt;br /&gt;Month: June&#34;,&#34;new_tests:  6333&lt;br /&gt;new_cases:  330&lt;br /&gt;Month: June&#34;,&#34;new_tests:  4044&lt;br /&gt;new_cases:  315&lt;br /&gt;Month: June&#34;,&#34;new_tests:  8948&lt;br /&gt;new_cases:  246&lt;br /&gt;Month: June&#34;,&#34;new_tests: 11824&lt;br /&gt;new_cases:  460&lt;br /&gt;Month: June&#34;,&#34;new_tests:  1877&lt;br /&gt;new_cases:  411&lt;br /&gt;Month: June&#34;,&#34;new_tests: 17650&lt;br /&gt;new_cases:  325&lt;br /&gt;Month: June&#34;,&#34;new_tests:  4779&lt;br /&gt;new_cases:  291&lt;br /&gt;Month: June&#34;,&#34;new_tests: 10424&lt;br /&gt;new_cases:  269&lt;br /&gt;Month: June&#34;],&#34;type&#34;:&#34;scatter&#34;,&#34;mode&#34;:&#34;markers&#34;,&#34;marker&#34;:{&#34;autocolorscale&#34;:false,&#34;color&#34;:&#34;rgba(33,144,140,1)&#34;,&#34;opacity&#34;:1,&#34;size&#34;:5.66929133858268,&#34;symbol&#34;:&#34;circle&#34;,&#34;line&#34;:{&#34;width&#34;:1.88976377952756,&#34;color&#34;:&#34;rgba(33,144,140,1)&#34;}},&#34;hoveron&#34;:&#34;points&#34;,&#34;name&#34;:&#34;June&#34;,&#34;legendgroup&#34;:&#34;June&#34;,&#34;showlegend&#34;:true,&#34;xaxis&#34;:&#34;x&#34;,&#34;yaxis&#34;:&#34;y&#34;,&#34;hoverinfo&#34;:&#34;text&#34;,&#34;frame&#34;:null},{&#34;x&#34;:[12585,12524,12371,11445,16469,13147,13179,14680,14610,8633,6655,19097,18986,18732,14889,8570,17204,24877,21419,22964,34127,15118,28798,22529,23402,24977,23451],&#34;y&#34;:[388,326,450,420,250,397,555,614,592,698,456,641,777,799,889,767,681,994,1030,1112,1119,1284,1120,1104,1151,1182,1356],&#34;text&#34;:[&#34;new_tests: 12585&lt;br /&gt;new_cases:  388&lt;br /&gt;Month: July&#34;,&#34;new_tests: 12524&lt;br /&gt;new_cases:  326&lt;br /&gt;Month: July&#34;,&#34;new_tests: 12371&lt;br /&gt;new_cases:  450&lt;br /&gt;Month: July&#34;,&#34;new_tests: 11445&lt;br /&gt;new_cases:  420&lt;br /&gt;Month: July&#34;,&#34;new_tests: 16469&lt;br /&gt;new_cases:  250&lt;br /&gt;Month: July&#34;,&#34;new_tests: 13147&lt;br /&gt;new_cases:  397&lt;br /&gt;Month: July&#34;,&#34;new_tests: 13179&lt;br /&gt;new_cases:  555&lt;br /&gt;Month: July&#34;,&#34;new_tests: 14680&lt;br /&gt;new_cases:  614&lt;br /&gt;Month: July&#34;,&#34;new_tests: 14610&lt;br /&gt;new_cases:  592&lt;br /&gt;Month: July&#34;,&#34;new_tests:  8633&lt;br /&gt;new_cases:  698&lt;br /&gt;Month: July&#34;,&#34;new_tests:  6655&lt;br /&gt;new_cases:  456&lt;br /&gt;Month: July&#34;,&#34;new_tests: 19097&lt;br /&gt;new_cases:  641&lt;br /&gt;Month: July&#34;,&#34;new_tests: 18986&lt;br /&gt;new_cases:  777&lt;br /&gt;Month: July&#34;,&#34;new_tests: 18732&lt;br /&gt;new_cases:  799&lt;br /&gt;Month: July&#34;,&#34;new_tests: 14889&lt;br /&gt;new_cases:  889&lt;br /&gt;Month: July&#34;,&#34;new_tests:  8570&lt;br /&gt;new_cases:  767&lt;br /&gt;Month: July&#34;,&#34;new_tests: 17204&lt;br /&gt;new_cases:  681&lt;br /&gt;Month: July&#34;,&#34;new_tests: 24877&lt;br /&gt;new_cases:  994&lt;br /&gt;Month: July&#34;,&#34;new_tests: 21419&lt;br /&gt;new_cases: 1030&lt;br /&gt;Month: July&#34;,&#34;new_tests: 22964&lt;br /&gt;new_cases: 1112&lt;br /&gt;Month: July&#34;,&#34;new_tests: 34127&lt;br /&gt;new_cases: 1119&lt;br /&gt;Month: July&#34;,&#34;new_tests: 15118&lt;br /&gt;new_cases: 1284&lt;br /&gt;Month: July&#34;,&#34;new_tests: 28798&lt;br /&gt;new_cases: 1120&lt;br /&gt;Month: July&#34;,&#34;new_tests: 22529&lt;br /&gt;new_cases: 1104&lt;br /&gt;Month: July&#34;,&#34;new_tests: 23402&lt;br /&gt;new_cases: 1151&lt;br /&gt;Month: July&#34;,&#34;new_tests: 24977&lt;br /&gt;new_cases: 1182&lt;br /&gt;Month: July&#34;,&#34;new_tests: 23451&lt;br /&gt;new_cases: 1356&lt;br /&gt;Month: July&#34;],&#34;type&#34;:&#34;scatter&#34;,&#34;mode&#34;:&#34;markers&#34;,&#34;marker&#34;:{&#34;autocolorscale&#34;:false,&#34;color&#34;:&#34;rgba(53,183,121,1)&#34;,&#34;opacity&#34;:1,&#34;size&#34;:5.66929133858268,&#34;symbol&#34;:&#34;circle&#34;,&#34;line&#34;:{&#34;width&#34;:1.88976377952756,&#34;color&#34;:&#34;rgba(53,183,121,1)&#34;}},&#34;hoveron&#34;:&#34;points&#34;,&#34;name&#34;:&#34;July&#34;,&#34;legendgroup&#34;:&#34;July&#34;,&#34;showlegend&#34;:true,&#34;xaxis&#34;:&#34;x&#34;,&#34;yaxis&#34;:&#34;y&#34;,&#34;hoverinfo&#34;:&#34;text&#34;,&#34;frame&#34;:null},{&#34;x&#34;:[14215,8045,20581,24147,23946,21444,13968,6607,19511,22781,22643,27787,23986,11846,6862,21344,24538,24383,25363,22992,13274,6491,20479,25754,25052,26500,24043,14670,7313],&#34;y&#34;:[1295,1225,1075,1309,1345,1378,1350,1145,779,1215,1415,1454,1415,1328,1087,733,1014,1409,1346,1392,1189,981,805,1060,1256,1504,1318,1365,952],&#34;text&#34;:[&#34;new_tests: 14215&lt;br /&gt;new_cases: 1295&lt;br /&gt;Month: August&#34;,&#34;new_tests:  8045&lt;br /&gt;new_cases: 1225&lt;br /&gt;Month: August&#34;,&#34;new_tests: 20581&lt;br /&gt;new_cases: 1075&lt;br /&gt;Month: August&#34;,&#34;new_tests: 24147&lt;br /&gt;new_cases: 1309&lt;br /&gt;Month: August&#34;,&#34;new_tests: 23946&lt;br /&gt;new_cases: 1345&lt;br /&gt;Month: August&#34;,&#34;new_tests: 21444&lt;br /&gt;new_cases: 1378&lt;br /&gt;Month: August&#34;,&#34;new_tests: 13968&lt;br /&gt;new_cases: 1350&lt;br /&gt;Month: August&#34;,&#34;new_tests:  6607&lt;br /&gt;new_cases: 1145&lt;br /&gt;Month: August&#34;,&#34;new_tests: 19511&lt;br /&gt;new_cases:  779&lt;br /&gt;Month: August&#34;,&#34;new_tests: 22781&lt;br /&gt;new_cases: 1215&lt;br /&gt;Month: August&#34;,&#34;new_tests: 22643&lt;br /&gt;new_cases: 1415&lt;br /&gt;Month: August&#34;,&#34;new_tests: 27787&lt;br /&gt;new_cases: 1454&lt;br /&gt;Month: August&#34;,&#34;new_tests: 23986&lt;br /&gt;new_cases: 1415&lt;br /&gt;Month: August&#34;,&#34;new_tests: 11846&lt;br /&gt;new_cases: 1328&lt;br /&gt;Month: August&#34;,&#34;new_tests:  6862&lt;br /&gt;new_cases: 1087&lt;br /&gt;Month: August&#34;,&#34;new_tests: 21344&lt;br /&gt;new_cases:  733&lt;br /&gt;Month: August&#34;,&#34;new_tests: 24538&lt;br /&gt;new_cases: 1014&lt;br /&gt;Month: August&#34;,&#34;new_tests: 24383&lt;br /&gt;new_cases: 1409&lt;br /&gt;Month: August&#34;,&#34;new_tests: 25363&lt;br /&gt;new_cases: 1346&lt;br /&gt;Month: August&#34;,&#34;new_tests: 22992&lt;br /&gt;new_cases: 1392&lt;br /&gt;Month: August&#34;,&#34;new_tests: 13274&lt;br /&gt;new_cases: 1189&lt;br /&gt;Month: August&#34;,&#34;new_tests:  6491&lt;br /&gt;new_cases:  981&lt;br /&gt;Month: August&#34;,&#34;new_tests: 20479&lt;br /&gt;new_cases:  805&lt;br /&gt;Month: August&#34;,&#34;new_tests: 25754&lt;br /&gt;new_cases: 1060&lt;br /&gt;Month: August&#34;,&#34;new_tests: 25052&lt;br /&gt;new_cases: 1256&lt;br /&gt;Month: August&#34;,&#34;new_tests: 26500&lt;br /&gt;new_cases: 1504&lt;br /&gt;Month: August&#34;,&#34;new_tests: 24043&lt;br /&gt;new_cases: 1318&lt;br /&gt;Month: August&#34;,&#34;new_tests: 14670&lt;br /&gt;new_cases: 1365&lt;br /&gt;Month: August&#34;,&#34;new_tests:  7313&lt;br /&gt;new_cases:  952&lt;br /&gt;Month: August&#34;],&#34;type&#34;:&#34;scatter&#34;,&#34;mode&#34;:&#34;markers&#34;,&#34;marker&#34;:{&#34;autocolorscale&#34;:false,&#34;color&#34;:&#34;rgba(143,215,68,1)&#34;,&#34;opacity&#34;:1,&#34;size&#34;:5.66929133858268,&#34;symbol&#34;:&#34;circle&#34;,&#34;line&#34;:{&#34;width&#34;:1.88976377952756,&#34;color&#34;:&#34;rgba(143,215,68,1)&#34;}},&#34;hoveron&#34;:&#34;points&#34;,&#34;name&#34;:&#34;August&#34;,&#34;legendgroup&#34;:&#34;August&#34;,&#34;showlegend&#34;:true,&#34;xaxis&#34;:&#34;x&#34;,&#34;yaxis&#34;:&#34;y&#34;,&#34;hoverinfo&#34;:&#34;text&#34;,&#34;frame&#34;:null},{&#34;x&#34;:[22326,26816,23975,37251,7247,20552,24297,25185,26149],&#34;y&#34;:[755,1053,1298,1269,1150,883,1136,1271,1380],&#34;text&#34;:[&#34;new_tests: 22326&lt;br /&gt;new_cases:  755&lt;br /&gt;Month: September&#34;,&#34;new_tests: 26816&lt;br /&gt;new_cases: 1053&lt;br /&gt;Month: September&#34;,&#34;new_tests: 23975&lt;br /&gt;new_cases: 1298&lt;br /&gt;Month: September&#34;,&#34;new_tests: 37251&lt;br /&gt;new_cases: 1269&lt;br /&gt;Month: September&#34;,&#34;new_tests:  7247&lt;br /&gt;new_cases: 1150&lt;br /&gt;Month: September&#34;,&#34;new_tests: 20552&lt;br /&gt;new_cases:  883&lt;br /&gt;Month: September&#34;,&#34;new_tests: 24297&lt;br /&gt;new_cases: 1136&lt;br /&gt;Month: September&#34;,&#34;new_tests: 25185&lt;br /&gt;new_cases: 1271&lt;br /&gt;Month: September&#34;,&#34;new_tests: 26149&lt;br /&gt;new_cases: 1380&lt;br /&gt;Month: September&#34;],&#34;type&#34;:&#34;scatter&#34;,&#34;mode&#34;:&#34;markers&#34;,&#34;marker&#34;:{&#34;autocolorscale&#34;:false,&#34;color&#34;:&#34;rgba(253,231,37,1)&#34;,&#34;opacity&#34;:1,&#34;size&#34;:5.66929133858268,&#34;symbol&#34;:&#34;circle&#34;,&#34;line&#34;:{&#34;width&#34;:1.88976377952756,&#34;color&#34;:&#34;rgba(253,231,37,1)&#34;}},&#34;hoveron&#34;:&#34;points&#34;,&#34;name&#34;:&#34;September&#34;,&#34;legendgroup&#34;:&#34;September&#34;,&#34;showlegend&#34;:true,&#34;xaxis&#34;:&#34;x&#34;,&#34;yaxis&#34;:&#34;y&#34;,&#34;hoverinfo&#34;:&#34;text&#34;,&#34;frame&#34;:null}],&#34;layout&#34;:{&#34;margin&#34;:{&#34;t&#34;:26.2283105022831,&#34;r&#34;:7.30593607305936,&#34;b&#34;:40.1826484018265,&#34;l&#34;:48.9497716894977},&#34;plot_bgcolor&#34;:&#34;rgba(235,235,235,1)&#34;,&#34;paper_bgcolor&#34;:&#34;rgba(255,255,255,1)&#34;,&#34;font&#34;:{&#34;color&#34;:&#34;rgba(0,0,0,1)&#34;,&#34;family&#34;:&#34;&#34;,&#34;size&#34;:14.6118721461187},&#34;xaxis&#34;:{&#34;domain&#34;:[0,1],&#34;automargin&#34;:true,&#34;type&#34;:&#34;linear&#34;,&#34;autorange&#34;:false,&#34;range&#34;:[-1572.75,39099.75],&#34;tickmode&#34;:&#34;array&#34;,&#34;ticktext&#34;:[&#34;0&#34;,&#34;10000&#34;,&#34;20000&#34;,&#34;30000&#34;],&#34;tickvals&#34;:[0,10000,20000,30000],&#34;categoryorder&#34;:&#34;array&#34;,&#34;categoryarray&#34;:[&#34;0&#34;,&#34;10000&#34;,&#34;20000&#34;,&#34;30000&#34;],&#34;nticks&#34;:null,&#34;ticks&#34;:&#34;outside&#34;,&#34;tickcolor&#34;:&#34;rgba(51,51,51,1)&#34;,&#34;ticklen&#34;:3.65296803652968,&#34;tickwidth&#34;:0.66417600664176,&#34;showticklabels&#34;:true,&#34;tickfont&#34;:{&#34;color&#34;:&#34;rgba(77,77,77,1)&#34;,&#34;family&#34;:&#34;&#34;,&#34;size&#34;:11.689497716895},&#34;tickangle&#34;:-0,&#34;showline&#34;:false,&#34;linecolor&#34;:null,&#34;linewidth&#34;:0,&#34;showgrid&#34;:true,&#34;gridcolor&#34;:&#34;rgba(255,255,255,1)&#34;,&#34;gridwidth&#34;:0.66417600664176,&#34;zeroline&#34;:false,&#34;anchor&#34;:&#34;y&#34;,&#34;title&#34;:{&#34;text&#34;:&#34;new_tests&#34;,&#34;font&#34;:{&#34;color&#34;:&#34;rgba(0,0,0,1)&#34;,&#34;family&#34;:&#34;&#34;,&#34;size&#34;:14.6118721461187}},&#34;hoverformat&#34;:&#34;.2f&#34;},&#34;yaxis&#34;:{&#34;domain&#34;:[0,1],&#34;automargin&#34;:true,&#34;type&#34;:&#34;linear&#34;,&#34;autorange&#34;:false,&#34;range&#34;:[-57.35,1578.35],&#34;tickmode&#34;:&#34;array&#34;,&#34;ticktext&#34;:[&#34;0&#34;,&#34;500&#34;,&#34;1000&#34;,&#34;1500&#34;],&#34;tickvals&#34;:[-7.105427357601e-15,500,1000,1500],&#34;categoryorder&#34;:&#34;array&#34;,&#34;categoryarray&#34;:[&#34;0&#34;,&#34;500&#34;,&#34;1000&#34;,&#34;1500&#34;],&#34;nticks&#34;:null,&#34;ticks&#34;:&#34;outside&#34;,&#34;tickcolor&#34;:&#34;rgba(51,51,51,1)&#34;,&#34;ticklen&#34;:3.65296803652968,&#34;tickwidth&#34;:0.66417600664176,&#34;showticklabels&#34;:true,&#34;tickfont&#34;:{&#34;color&#34;:&#34;rgba(77,77,77,1)&#34;,&#34;family&#34;:&#34;&#34;,&#34;size&#34;:11.689497716895},&#34;tickangle&#34;:-0,&#34;showline&#34;:false,&#34;linecolor&#34;:null,&#34;linewidth&#34;:0,&#34;showgrid&#34;:true,&#34;gridcolor&#34;:&#34;rgba(255,255,255,1)&#34;,&#34;gridwidth&#34;:0.66417600664176,&#34;zeroline&#34;:false,&#34;anchor&#34;:&#34;x&#34;,&#34;title&#34;:{&#34;text&#34;:&#34;new_cases&#34;,&#34;font&#34;:{&#34;color&#34;:&#34;rgba(0,0,0,1)&#34;,&#34;family&#34;:&#34;&#34;,&#34;size&#34;:14.6118721461187}},&#34;hoverformat&#34;:&#34;.2f&#34;},&#34;shapes&#34;:[{&#34;type&#34;:&#34;rect&#34;,&#34;fillcolor&#34;:null,&#34;line&#34;:{&#34;color&#34;:null,&#34;width&#34;:0,&#34;linetype&#34;:[]},&#34;yref&#34;:&#34;paper&#34;,&#34;xref&#34;:&#34;paper&#34;,&#34;x0&#34;:0,&#34;x1&#34;:1,&#34;y0&#34;:0,&#34;y1&#34;:1}],&#34;showlegend&#34;:true,&#34;legend&#34;:{&#34;bgcolor&#34;:&#34;rgba(255,255,255,1)&#34;,&#34;bordercolor&#34;:&#34;transparent&#34;,&#34;borderwidth&#34;:1.88976377952756,&#34;font&#34;:{&#34;color&#34;:&#34;rgba(0,0,0,1)&#34;,&#34;family&#34;:&#34;&#34;,&#34;size&#34;:11.689497716895},&#34;y&#34;:0.96751968503937},&#34;annotations&#34;:[{&#34;text&#34;:&#34;Month&#34;,&#34;x&#34;:1.02,&#34;y&#34;:1,&#34;showarrow&#34;:false,&#34;ax&#34;:0,&#34;ay&#34;:0,&#34;font&#34;:{&#34;color&#34;:&#34;rgba(0,0,0,1)&#34;,&#34;family&#34;:&#34;&#34;,&#34;size&#34;:14.6118721461187},&#34;xref&#34;:&#34;paper&#34;,&#34;yref&#34;:&#34;paper&#34;,&#34;textangle&#34;:-0,&#34;xanchor&#34;:&#34;left&#34;,&#34;yanchor&#34;:&#34;bottom&#34;,&#34;legendTitle&#34;:true}],&#34;hovermode&#34;:&#34;closest&#34;,&#34;barmode&#34;:&#34;relative&#34;},&#34;config&#34;:{&#34;doubleClick&#34;:&#34;reset&#34;,&#34;showSendToCloud&#34;:false},&#34;source&#34;:&#34;A&#34;,&#34;attrs&#34;:{&#34;2b98286a3f4e&#34;:{&#34;x&#34;:{},&#34;y&#34;:{},&#34;colour&#34;:{},&#34;type&#34;:&#34;scatter&#34;}},&#34;cur_data&#34;:&#34;2b98286a3f4e&#34;,&#34;visdat&#34;:{&#34;2b98286a3f4e&#34;:[&#34;function (y) &#34;,&#34;x&#34;]},&#34;highlight&#34;:{&#34;on&#34;:&#34;plotly_click&#34;,&#34;persistent&#34;:false,&#34;dynamic&#34;:false,&#34;selectize&#34;:false,&#34;opacityDim&#34;:0.2,&#34;selected&#34;:{&#34;opacity&#34;:1},&#34;debounce&#34;:0},&#34;shinyEvents&#34;:[&#34;plotly_hover&#34;,&#34;plotly_click&#34;,&#34;plotly_selected&#34;,&#34;plotly_relayout&#34;,&#34;plotly_brushed&#34;,&#34;plotly_brushing&#34;,&#34;plotly_clickannotation&#34;,&#34;plotly_doubleclick&#34;,&#34;plotly_deselect&#34;,&#34;plotly_afterplot&#34;,&#34;plotly_sunburstclick&#34;],&#34;base_url&#34;:&#34;https://plot.ly&#34;},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
+&lt;pre class=&#34;r&#34;&gt;&lt;code&gt;tab&amp;lt;- Romania %&amp;gt;% select(date, total_cases, new_cases,new_cases_per_million, total_deaths, new_deaths,new_tests, total_tests, stringency_index) %&amp;gt;% na.omit() %&amp;gt;% filter(date &amp;lt;     &amp;quot;2020-03-18&amp;quot;)%&amp;gt;% kable( ) %&amp;gt;% kable_styling(full_width = NULL,
+  position = &amp;quot;center&amp;quot;,
+  font_size = NULL,
+  row_label_position = &amp;quot;l&amp;quot;,
+  repeat_header_continued = FALSE,
+  stripe_color = &amp;quot;black&amp;quot;,
+  stripe_index = NULL,
+  table.envir = &amp;quot;table&amp;quot;,
+  fixed_thead = FALSE)
+tab&lt;/code&gt;&lt;/pre&gt;
+&lt;table class=&#34;table&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th style=&#34;text-align:left;&#34;&gt;
+date
 &lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-Confirmed
+&lt;th style=&#34;text-align:right;&#34;&gt;
+total_cases
 &lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-Death
+&lt;th style=&#34;text-align:right;&#34;&gt;
+new_cases
 &lt;/th&gt;
-&lt;th style=&#34;text-align:left;&#34;&gt;
-Recovered
+&lt;th style=&#34;text-align:right;&#34;&gt;
+new_cases_per_million
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+total_deaths
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+new_deaths
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+new_tests
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+total_tests
+&lt;/th&gt;
+&lt;th style=&#34;text-align:right;&#34;&gt;
+stringency_index
 &lt;/th&gt;
 &lt;/tr&gt;
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
+2020-03-13
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Min. : 1
+&lt;td style=&#34;text-align:right;&#34;&gt;
+64
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Min. : 0.00
+&lt;td style=&#34;text-align:right;&#34;&gt;
+19
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Min. : -8
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0.988
 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-1st Qu.: 340
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-1st Qu.: 7.00
+&lt;td style=&#34;text-align:right;&#34;&gt;
+624
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-1st Qu.: 90
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2545
 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Median : 1013
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Median : 23.00
-&lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Median : 676
+&lt;td style=&#34;text-align:right;&#34;&gt;
+58.33
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
+2020-03-14
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Mean : 1730
+&lt;td style=&#34;text-align:right;&#34;&gt;
+89
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Mean : 36.81
+&lt;td style=&#34;text-align:right;&#34;&gt;
+25
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Mean : 1641
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.300
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+384
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2929
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+58.33
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
+2020-03-15
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3rd Qu.: 2721
+&lt;td style=&#34;text-align:right;&#34;&gt;
+113
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3rd Qu.: 60.00
+&lt;td style=&#34;text-align:right;&#34;&gt;
+24
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-3rd Qu.: 2060
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.248
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+276
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3205
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+58.33
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
+2020-03-16
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Max. :12073
+&lt;td style=&#34;text-align:right;&#34;&gt;
+139
 &lt;/td&gt;
-&lt;td style=&#34;text-align:left;&#34;&gt;
-Max. :178.00
+&lt;td style=&#34;text-align:right;&#34;&gt;
+26
 &lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+1.352
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+503
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+3708
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+58.33
+&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
 &lt;td style=&#34;text-align:left;&#34;&gt;
-Max. :19772
+2020-03-17
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+184
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+45
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+2.339
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+0
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+442
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+4150
+&lt;/td&gt;
+&lt;td style=&#34;text-align:right;&#34;&gt;
+58.33
 &lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;p&gt;&lt;strong&gt;Confirmed Summary&lt;/strong&gt;
-Summarising Pakistan’s COVID19 cases, in confirmed cases, in a day the least number of cases that were reported is 1 and the maximum number of cases reported in a day are 12,073. The average number of confirmed cases throughout the period have been 1,730. From a range perspective, 1,013 has been the middle for reported cases in a day.&lt;/p&gt;
-&lt;p&gt;The first quartile (Q1) tells us the middle value from the smallest value which in this case is 1 and the median 1,013. In other words, the first 25% of the cases are reported lower than 340.&lt;/p&gt;
-&lt;p&gt;The third Quartile (Q3) tells us the middle value from the largest value which in this case is 12,073 and the median 1,013. In other words, the last 25% of the cases are reported higher than 2,721.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Death Summary&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Summarising Pakistan’s deaths reported due to COVID19, in deaths reported the least number of deaths reported is 0 on a day, and the maximum number of deaths reported on a day is 178. The average deaths or the mean of deaths reported throughout the period is 36. The mid-range on the number of deaths is at 23.&lt;/p&gt;
-&lt;p&gt;The first quartile (Q1) tells us the middle value from the smallest value which in this case is 0 and the median 23. In other words, the first 25% of the deaths reported are lower than 7.&lt;/p&gt;
-&lt;p&gt;The third Quartile (Q3) tells us the middle value from the largest value which in this case is 178 and the median 23. In other words, the last 25% of the cases are reported higher than 60.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Recovered Summary&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Summarizing the recovered COVID19 cases in Pakistan. The least number of recovered cases are a bit different, the least number of patients that recovered in a day are -8 which means that the cases reported were untrue, follow &lt;a href=&#34;https://yen.com.gh/150877-covid-19-update-8-affected-persons-ghana-allegedly-recovered.html&#34;&gt;this&lt;/a&gt; link to get a better understand of the interpretation. The maximum number of recovered cases reported in a day are 19,772. The average recovery of covid19 patients recovered throughout the period is 1,641.&lt;/p&gt;
-&lt;p&gt;The first quartile (Q1) tells us the middle value from the smallest value which in this case is -8 and the median 676. In other words, the first 25% of the deaths reported are lower than 90.&lt;/p&gt;
-&lt;p&gt;The third Quartile (Q3) tells us the middle value from the largest value which in this case is 19,772 and the median 676. In other words, the last 25% of the cases are reported higher than 2,060.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div id=&#34;methodology&#34; class=&#34;section level2&#34;&gt;
+&lt;h2&gt;Methodology&lt;/h2&gt;
 &lt;/div&gt;
 &lt;/div&gt;
 </description>

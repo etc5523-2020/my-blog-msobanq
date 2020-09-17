@@ -1,0 +1,161 @@
+---
+title: Pakistan & CoVID-19
+author: Muhammad Soban Qasim
+date: '2020-09-02'
+slug: pakcovid19
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-09-02T15:40:59+10:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+<script src="/rmarkdown-libs/htmlwidgets/htmlwidgets.js"></script>
+<script src="/rmarkdown-libs/pymjs/pym.v1.js"></script>
+<script src="/rmarkdown-libs/widgetframe-binding/widgetframe.js"></script>
+<script src="/rmarkdown-libs/kePrint/kePrint.js"></script>
+
+
+<div id="data-description" class="section level1">
+<h1>DATA Description</h1>
+<p>The data set is for the Covid-19 virus affecting all the countries, categorising the cases into confirmed cases, recovered cases and cases that resulted in death. The data set has a lot of limited variables. The data is collected from this link <a href="https://github.com/RamiKrispin/coronavirus">here</a>. Our primary focus for the effected country will be Pakistan. <span class="citation">@RamiKrispin</span></p>
+<div id="why-pakistan" class="section level2">
+<h2>Why Pakistan?</h2>
+<p>Pakistan, officially the Islamic Republic of Pakistan, is a country in South Asia. It is the world’s fifth-most populous country with a population exceeding 212.2 million. It is the 33rd-largest country by area, spanning 881,913 square kilometres (340,509 square miles).</p>
+<p>As the worlds 5th largest populated country, the government of Pakistan had a very different approach in how to handle, and contain the virus.</p>
+<p>First the government was hesitent in imposing the lockdown. As reported by this article <a href="https://foreignpolicy.com/2020/05/11/on-coronavirus-pakistans-government-is-missing-in-action/">here</a>.</p>
+<p>Then the government with pressure from the opposition international community and the people imposed the lockdown as described in <a href="https://www.loc.gov/law/foreign-news/article/pakistan-smart-lockdown-imposed-across-cities-of-pakistan-as-covid-19-cases-grow-rapidly/">this</a> article.</p>
+<p>Here are some important dates according <a href="https://en.m.wikipedia.org/wiki/COVID-19_pandemic_in_Pakistan#:~:text=Sindh%20has%20recorded%20the%20most,lockdown%20was%20eased%20in%20phases">this</a> source.</p>
+</div>
+<div id="methodology" class="section level2">
+<h2>Methodology</h2>
+<p>We will start by filtering the loaded data, the country we want is Pakistan, so we will be filtering that. The first case in Pakistan was reported in February, so let’s get rid of additional dates. Some variables will be taken out, the province variable is empty, coordinates like latitude and longitude make no sense as all the recorded cases are from the same coordinates.</p>
+<p>With the lockdown lifted during important events there were a lot of reservations.
+Some important dates are</p>
+<p>13th of March (lockdown imposed)</p>
+<p>27th of March (Eid-ul-Fitr, a one day religious festival)</p>
+<p>24th of May (Smart lockdown imposed, only affected areas under lockdown)</p>
+<p>31st of July (Eid-ul-Adha, a three day religions festival)</p>
+<p>8th of August (lockdown lifted)</p>
+<p>14th of August (Independence Day)</p>
+<div id="htmlwidget-1" style="width:100%;height:480px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-1">{"x":{"url":"/post/pakistan/pakistan_files/figure-html//widgets/widget_Interactive table.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<p>The table is interactive, for users to do their own research with respect to day, month, week of the year, number of cases reported, deaths reported, patients recovered. To identify the surge in numbers, especially after the above mentioned dates.</p>
+<table style="color: #00FA9A;background-color:#1E90FF; margin-left: auto; margin-right: auto;" class="table table-striped">
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:left;">
+Confirmed
+</th>
+<th style="text-align:left;">
+Death
+</th>
+<th style="text-align:left;">
+Recovered
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Min. : 1
+</td>
+<td style="text-align:left;">
+Min. : 0.00
+</td>
+<td style="text-align:left;">
+Min. : -8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+1st Qu.: 340
+</td>
+<td style="text-align:left;">
+1st Qu.: 7.00
+</td>
+<td style="text-align:left;">
+1st Qu.: 90
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Median : 1013
+</td>
+<td style="text-align:left;">
+Median : 23.00
+</td>
+<td style="text-align:left;">
+Median : 676
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Mean : 1730
+</td>
+<td style="text-align:left;">
+Mean : 36.81
+</td>
+<td style="text-align:left;">
+Mean : 1641
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+3rd Qu.: 2721
+</td>
+<td style="text-align:left;">
+3rd Qu.: 60.00
+</td>
+<td style="text-align:left;">
+3rd Qu.: 2060
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+Max. :12073
+</td>
+<td style="text-align:left;">
+Max. :178.00
+</td>
+<td style="text-align:left;">
+Max. :19772
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Confirmed Summary</strong>
+Summarising Pakistan’s COVID19 cases, in confirmed cases, in a day the least number of cases that were reported is 1 and the maximum number of cases reported in a day are 12,073. The average number of confirmed cases throughout the period have been 1,730. From a range perspective, 1,013 has been the middle for reported cases in a day.</p>
+<p>The first quartile (Q1) tells us the middle value from the smallest value which in this case is 1 and the median 1,013. In other words, the first 25% of the cases are reported lower than 340.</p>
+<p>The third Quartile (Q3) tells us the middle value from the largest value which in this case is 12,073 and the median 1,013. In other words, the last 25% of the cases are reported higher than 2,721.</p>
+<p><strong>Death Summary</strong></p>
+<p>Summarising Pakistan’s deaths reported due to COVID19, in deaths reported the least number of deaths reported is 0 on a day, and the maximum number of deaths reported on a day is 178. The average deaths or the mean of deaths reported throughout the period is 36. The mid-range on the number of deaths is at 23.</p>
+<p>The first quartile (Q1) tells us the middle value from the smallest value which in this case is 0 and the median 23. In other words, the first 25% of the deaths reported are lower than 7.</p>
+<p>The third Quartile (Q3) tells us the middle value from the largest value which in this case is 178 and the median 23. In other words, the last 25% of the cases are reported higher than 60.</p>
+<p><strong>Recovered Summary</strong></p>
+<p>Summarizing the recovered COVID19 cases in Pakistan. The least number of recovered cases are a bit different, the least number of patients that recovered in a day are -8 which means that the cases reported were untrue, follow <a href="https://yen.com.gh/150877-covid-19-update-8-affected-persons-ghana-allegedly-recovered.html">this</a> link to get a better understand of the interpretation. The maximum number of recovered cases reported in a day are 19,772. The average recovery of covid19 patients recovered throughout the period is 1,641.</p>
+<p>The first quartile (Q1) tells us the middle value from the smallest value which in this case is -8 and the median 676. In other words, the first 25% of the deaths reported are lower than 90.</p>
+<p>The third Quartile (Q3) tells us the middle value from the largest value which in this case is 19,772 and the median 676. In other words, the last 25% of the cases are reported higher than 2,060.</p>
+</div>
+</div>

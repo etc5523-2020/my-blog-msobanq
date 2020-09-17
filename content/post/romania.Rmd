@@ -86,4 +86,5 @@ tab<- Romania %>% select(date, total_cases, new_cases,new_cases_per_million, tot
 tab
 ```
 
+
 ## Methodology

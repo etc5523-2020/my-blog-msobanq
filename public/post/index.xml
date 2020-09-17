@@ -26,7 +26,7 @@
 
 &lt;div id=&#34;data-description&#34; class=&#34;section level1&#34;&gt;
 &lt;h1&gt;DATA Description&lt;/h1&gt;
-&lt;p&gt;The data set is for the Covid-19 virus affecting all the countries, categorising the cases into confirmed cases, recovered cases and cases that resulted in death. The data set has a lot of limited variables. The data is collected from this link &lt;a href=&#34;https://github.com/RamiKrispin/coronavirus&#34;&gt;here&lt;/a&gt;. Our primary focus for the effected country will be Pakistan.&lt;/p&gt;
+&lt;p&gt;The data set is for the Covid-19 virus affecting all the countries, categorising the cases into confirmed cases, recovered cases and cases that resulted in death. The data set has a lot of limited variables. The data is collected from this link &lt;a href=&#34;https://github.com/RamiKrispin/coronavirus&#34;&gt;here&lt;/a&gt;. Our primary focus for the effected country will be Pakistan. &lt;span class=&#34;citation&#34;&gt;(&lt;span class=&#34;citeproc-not-found&#34; data-reference-id=&#34;RamiKrispin&#34;&gt;&lt;strong&gt;???&lt;/strong&gt;&lt;/span&gt;)&lt;/span&gt;&lt;/p&gt;
 &lt;div id=&#34;why-pakistan&#34; class=&#34;section level2&#34;&gt;
 &lt;h2&gt;Why Pakistan?&lt;/h2&gt;
 &lt;p&gt;Pakistan, officially the Islamic Republic of Pakistan, is a country in South Asia. It is the world’s fifth-most populous country with a population exceeding 212.2 million. It is the 33rd-largest country by area, spanning 881,913 square kilometres (340,509 square miles).&lt;/p&gt;
@@ -42,14 +42,14 @@
 Some important dates are&lt;/p&gt;
 &lt;p&gt;13th of March (lockdown imposed)&lt;/p&gt;
 &lt;p&gt;27th of March (Eid-ul-Fitr, a one day religious festival)&lt;/p&gt;
-&lt;p&gt;24th of May (loc)&lt;/p&gt;
+&lt;p&gt;24th of May (Smart lockdown imposed, only affected areas under lockdown)&lt;/p&gt;
 &lt;p&gt;31st of July (Eid-ul-Adha, a three day religions festival)&lt;/p&gt;
-&lt;p&gt;8th of August (smart lockdown imposed)&lt;/p&gt;
+&lt;p&gt;8th of August (lockdown lifted)&lt;/p&gt;
 &lt;p&gt;14th of August (Independence Day)&lt;/p&gt;
 &lt;div id=&#34;htmlwidget-1&#34; style=&#34;width:100%;height:480px;&#34; class=&#34;widgetframe html-widget&#34;&gt;&lt;/div&gt;
 &lt;script type=&#34;application/json&#34; data-for=&#34;htmlwidget-1&#34;&gt;{&#34;x&#34;:{&#34;url&#34;:&#34;/post/2020-09-02-pakcovid19.en_files/figure-html//widgets/widget_Interactive table.html&#34;,&#34;options&#34;:{&#34;xdomain&#34;:&#34;*&#34;,&#34;allowfullscreen&#34;:false,&#34;lazyload&#34;:false}},&#34;evals&#34;:[],&#34;jsHooks&#34;:[]}&lt;/script&gt;
 &lt;p&gt;The table is interactive, for users to do their own research with respect to day, month, week of the year, number of cases reported, deaths reported, patients recovered. To identify the surge in numbers, especially after the above mentioned dates.&lt;/p&gt;
-&lt;table class=&#34;table table-striped&#34; style=&#34;margin-left: auto; margin-right: auto;&#34;&gt;
+&lt;table style=&#34;color: #55D24C;background-color: #4339D1; margin-left: auto; margin-right: auto;&#34; class=&#34;table&#34;&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th style=&#34;text-align:left;&#34;&gt;

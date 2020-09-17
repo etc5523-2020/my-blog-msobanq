@@ -1,3 +1,0 @@
-git remote add origin https://github.com/etc5523-2020/my-blog-msobanq.git
-git branch -M master
-git push -u origin master

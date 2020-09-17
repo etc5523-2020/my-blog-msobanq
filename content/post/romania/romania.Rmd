@@ -41,11 +41,11 @@ c19 <- read.csv("owid-covid-data.csv")
 
 # DATA Description 
 
-The data sets used are of the COVID-19 virus, containing data on all countries. The first data set contains the total cases, new cases, cases per million of the countries population, total deaths, new deaths, new tests, total tests and stingency index. The data set has extensive variables, however, not all are used in this blog. The data set was obtained form [here](https://ourworldindata.org/coronavirus-data). The first set although extensive, did not conatin the varaible of cases recovered. A second data set was used to obtain the cases recovered from [here](https://github.com/RamiKrispin/coronavirus).   
+The data sets used are of the COVID-19 virus, containing data on all countries. The first data set contains the total cases, new cases, cases per million of the countries population, total deaths, new deaths, new tests, total tests and stingency index. The data set has extensive variables, however, not all are used in this blog. The data set was obtained from [here](https://ourworldindata.org/coronavirus-data). The first set although extensive, did not contain the variable of cases recovered. A second data set was used to obtain the cases recovered from [here](https://github.com/RamiKrispin/coronavirus).   
 
 ## Why Romania?
 
-Romania is part of the European Union, according to [wikipedia](https://en.wikipedia.org/wiki/Romania#Tourism),  Romania is the largest country in Southeastern Europe and the twelfth-largest in Europe, having an area of 238,397 square kilometres. According to the 2011 census, Romania's population is 20,121,641. As part of the European Union, Romania attracts a  lot of tourism, the number of tourists has been rising steadily, reaching 9.33 million foreign tourists in 2016, according to the Worldbank.  
+Romania is part of the European Union, according to [Wikipedia](https://en.wikipedia.org/wiki/Romania#Tourism),  Romania is the largest country in Southeastern Europe and the twelfth-largest in Europe, having an area of 238,397 square kilometres. According to the 2011 census, Romania's population is 20,121,641. As part of the European Union, Romania attracts a  lot of tourism; the number of tourists has been rising steadily, reaching 9.33 million foreign tourists in 2016, according to the World Bank.  
 
 We are going to be looking into at what scale the Covid-19 affected Romania and how did Romania try to contain it. 
 
@@ -53,7 +53,7 @@ We are going to be looking into at what scale the Covid-19 affected Romania and 
 
 The data sets contain information on Covid-19 cases on all countries of the world, hence, we will filter it to give us details only on Romania. Only variables that are needed will be selected for exploration. The first covid-19 case was reported in Romania on 2020-02-27. 
 
-First, let's identify the testing and tested positive for covid-19 cases ratio. 
+First, identify the ratio of tests and positive tested for covid-19. 
 
 
 ```{r, include=FALSE}
@@ -89,7 +89,7 @@ ggplotly(rp)
 ```
 
 The plot shows how many tests were performed and how many people tested positive for covid-19, color coded by the month. 
-Interacting with the graph shows a growth in tested positive cases. Try selecting the month by double clicking. 
+Interacting with the graph shows a growth in tested-positive cases. Try selecting the month by double clicking. 
 
 ```{r}
 Rom <- coronavirus %>% filter(country == "Romania") %>% 
@@ -114,7 +114,7 @@ ro <- full_join(Rom,
   rename( deaths= "new_deaths")
 ```
 
-With an increasing trend in the number of patients diagnosed with covid-19, we need to look at the recovery to death ratio. 
+With an increasing trend in the number of patients diagnosed with covid-19, we need to look at the recovery-to-death ratio. 
 
 ```{r, warning=FALSE, message = FALSE}
 
@@ -133,7 +133,7 @@ p2
 
 ```
 
-The data shows that the death ratio has been low in comparison to recovery. The highest death count was recorded in the month of August at 58. Meanwhile, in the month of July, the highest number of patients recovered were recorded at 1,707. There is no particular trend in the revered to death ratio, however, death count increased in August. You can look at it yourself by interacting with the month legend just double click on the month you want to select. 
+The data shows that the death ratio has been low in comparison to recovery. The highest death count was recorded in the month of August at 58. Meanwhile, in the month of July, the highest number of patients recovered were recorded at 1,707. There is no particular trend in the recovered to death ratio, however, death count increased in August. You can look at it yourself by interacting with the Month legend; just double click on the month you want to select. 
 
 ```{r, include=FALSE}
 tab<- Romania %>% select(date, total_cases, new_cases,new_cases_per_million, total_deaths, new_deaths,new_tests, total_tests, stringency_index) %>% na.omit() %>% filter(date < 	"2020-03-18")%>% kable( ) %>% kable_styling(full_width = NULL,
@@ -148,7 +148,7 @@ tab<- Romania %>% select(date, total_cases, new_cases,new_cases_per_million, tot
 tab
 ```
 
-## Romanain Governments Response
+## Romanain Governments' Response
 
 How did the government handle this in Romania? For this, we will be looking into the [stringency index](https://www.insightsonindia.com/2020/05/09/what-is-stringency-index/#:~:text=The%20Stringency%20Index%20is%20a%20number%20from%200,used%20by%20the%20Oxford%20COVID-19%20Government%20Response%20Tracker.), which in layman terms translates into the level of emergency imposed or the governments' response to the pandemic spread. 
 
@@ -174,19 +174,19 @@ int_stin <- Romania %>% ggplot(aes(x = date,
 ggplotly(int_stin)
 ```
 
-The higher the stringency the more the measures taken to get the situation under control. With an increase in the number of cases, the Romanian Government implemented plans to implement to get control on the situation as mentioned in this [article](https://stirioficiale.ro/informatii/continuarea-masurile-de-prevenire-si-limitare-a-eventualelor-imbolnaviri-cu-noul-coronavirus). The stringency rate jumped from 16.67% to 58.33%, in March. Travel restrictions were imposed, as mentioned [here](https://stirioficiale.ro/informatii/comunicat-de-presa-20-martie-ora-9-36am). 
+The higher the stringency the more the measures taken to get the situation under control. With an increase in the number of cases, the Romanian Government implemented plans to get control on the situation as mentioned in this [article](https://stirioficiale.ro/informatii/continuarea-masurile-de-prevenire-si-limitare-a-eventualelor-imbolnaviri-cu-noul-coronavirus). The stringency rate jumped from 16.67% to 58.33% in March. Travel restrictions were imposed, as mentioned [here](https://stirioficiale.ro/informatii/comunicat-de-presa-20-martie-ora-9-36am). 
 
-In April fines and penalties were imposed to discourage citizens to break the lockdown regulations, as mentioned in this [article](https://stirioficiale.ro/informatii/buletin-de-presa-2-aprilie-2020-ora-13-00). The stringency index jumped from 58.33% to 87.04%. 
+In April, fines and penalties were imposed to discourage citizens to break the lockdown regulations, as mentioned in this [article](https://stirioficiale.ro/informatii/buletin-de-presa-2-aprilie-2020-ora-13-00). The stringency index jumped from 58.33% to 87.04%. 
 
-In May some relaxation measures were taken on the previous lockdown policy, as mentioned [here](https://stirioficiale.ro/informatii/informare-de-presa-9-mai-2020-ora-1-23-pm). Dropping the stringency index from 87.045 to 75%. 
+In May, some measures were relaxed on the previous lockdown policy, as mentioned [here](https://stirioficiale.ro/informatii/informare-de-presa-9-mai-2020-ora-1-23-pm), dropping the stringency index from 87.045 to 75%. 
 
-In June the Romanian Government decided to relax the restrictions and resume social and economic activity. More details are provided [here](https://stirioficiale.ro/informatii/precizari-de-presa-15-iunie-2020). Further dropping the stringency index from 75% to 54.41% and towards the end of June, the index dropped to 41.67%. 
+In June, the Romanian Government decided to relax the restrictions and resume social and economic activity. More details are provided [here](https://stirioficiale.ro/informatii/precizari-de-presa-15-iunie-2020), further dropping the stringency index from 75% to 54.41% and towards the end of June, the index dropped to 41.67%. 
 
 After a surge in cases, the Romanian  Government announced new bylaws to be followed to get the cases under control without restricting the social and economic health of the country. All the measures are mentioned [here](https://stirioficiale.ro/informatii/informare-de-presa-21-iulie-2020-ora-11-37). With these new regulations, the stringency index increased from 41.67% to 45.37% and has been stable ever since, from July to August. 
 
 ## Was the Stringency working?
 
-The figure below shows the stringency index with the new cases reported, which lets us know the effectiveness of the Romanian Government. The figure speaks for itself during the initial spike the increase in the stringency level did control the new cases reported. However, cases spiked as soon as the regulations were relaxed which is to be expected. Overall the having a direct relation between the level of stringency and new cases reported. 
+The figure below shows the stringency index with the new cases reported, which lets us know the effectiveness of the Romanian Government. The figure speaks for itself; during the initial spike the increase in the stringency level did control the new cases reported. However, cases spiked as soon as the regulations were relaxed which is to be expected. Overall having a direct relation between the level of stringency and new cases reported. 
 
 
 

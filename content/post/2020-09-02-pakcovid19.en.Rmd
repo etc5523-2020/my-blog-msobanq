@@ -102,7 +102,7 @@ Paki <- Pak %>% mutate(Month = month(date,
 
 
 ```{r Interactive table}
-dt <- datatable(Paki, options = list(pageLength = 10), class = 'cell-border stripe', filter = 'top')
+dt <- datatable(Paki, options = list(pageLength = 7), class = 'cell-border stripe', filter = 'top')
 
 frameWidget(dt)
 ```
@@ -175,7 +175,8 @@ The table is interactive, for users to do their own research with respect to day
 ```{r summary table}
 Pakis <- Paki %>% select(Confirmed, Death, Recovered)
 
- summary(Pakis) %>% kable( table.attr = "style = \"color: #55D24C;background-color: #4339D1;\"") %>% kable_styling(
+
+ summary(Pakis) %>% kable(table.attr = "style = \"color: #00FA9A;background-color:#1E90FF;\"") %>% kable_styling(bootstrap_options = "striped",
   full_width = NULL,
   position = "center",
   font_size = NULL,

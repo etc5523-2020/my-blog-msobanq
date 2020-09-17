@@ -20,7 +20,7 @@ projects: []
 
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 library(readr)
 library(ggplot2)
 library(dplyr)
@@ -33,7 +33,7 @@ library(lubridate)
 library(kableExtra)
 ```
 
-```{r}
+```{r, include=FALSE}
 c19 <- read.csv("owid-covid-data.csv")
 ```
 
@@ -45,21 +45,35 @@ The data sets used are of the COVID-19 virus, containing data on all countries. 
 
 ## Why Romania?
 
+Romania is part of the European Union, according to [wikipedia](https://en.wikipedia.org/wiki/Romania#Tourism),  Romania is the largest country in Southeastern Europe and the twelfth-largest in Europe, having an area of 238,397 square kilometres. According to the 2011 census, Romania's population is 20,121,641. As part of the European Union, Romania attracts a  lot of tourism, the number of tourists has been rising steadily, reaching 9.33 million foreign tourists in 2016, according to the Worldbank.  
+
+We are going to be looking into at what scale the Covid-19 affected Romania and how did Romania try to contain it. 
+
+## Methodology
+
+The data sets contain information on Covid-19 cases on all countries of the world, hence, we will filter it to give us details only on Romania. Only variables that are needed will be selected for exploration. The first covid-19 case was reported in Romania on 2020-02-27. 
+
+First, let's identify the testing and tested positive for covid-19 cases ratio. 
 
 
-
-```{r}
+```{r, include=FALSE}
 Romania <- c19 %>% filter(location == "Romania") %>% 
   select(-iso_code, 
          -continent, 
          -location) %>% 
-  filter(date > 	"2020-02-26") %>% mutate(date = as.Date(date))
+  filter(date > 	"2020-02-26") %>% 
+  mutate(date = as.Date(date))
 ```
 
-```{r}
+```{r, include=FALSE}
 Romi <- c19 %>% filter(location == "Romania") %>% 
-  select( date, new_cases, new_tests) %>% 
-  filter(date > 	"2020-02-29")  %>% mutate(Month = month(date,label = TRUE,abbr = FALSE)) %>% na.omit() 
+  select( date, 
+          new_cases, 
+          new_tests) %>% 
+  filter(date > 	"2020-02-29")  %>% 
+  mutate(Month = month(date,label = TRUE,
+                       abbr = FALSE)) %>%
+  na.omit() 
 ```
 
 ```{r}
@@ -67,13 +81,61 @@ Romi <- c19 %>% filter(location == "Romania") %>%
 rp <- Romi %>% ggplot( aes(x= new_tests, 
                            y = new_cases, 
                            color = Month)) + 
-  geom_point() # + facet_wrap(~ month(date)) + geom_smooth()
+  geom_point() 
+
 rp2 <- rp + facet_wrap(~ Month) 
+
 ggplotly(rp)
 ```
 
+The plot shows how many tests were performed and how many people tested positive for covid-19, color coded by the month. 
+Interacting with the graph shows a growth in tested positive cases. Try selecting the month by double clicking. 
 
 ```{r}
+Rom <- coronavirus %>% filter(country == "Romania") %>% 
+  pivot_wider(names_from = type, 
+              values_from = cases ) %>% 
+  select(date, 
+         recovered) %>% 
+  filter(date >"2020-02-26") %>% 
+  na.omit
+```
+
+```{r}
+ro <- full_join(Rom, 
+                Romania, 
+                by = "date") %>% 
+  select(date, 
+         new_deaths, 
+         recovered) %>% 
+  na.omit() %>% 
+  mutate(Month = months(date)) %>% 
+  filter(date > "2020-02-29	") %>% 
+  rename( deaths= "new_deaths")
+```
+
+With an increasing trend in the number of patients diagnosed with covid-19, we need to look at the recovery to death ratio. 
+
+```{r, warning=FALSE, message = FALSE}
+
+ro$Month<- factor(ro$Month, levels = c("March", "April", "May", "June", "July","August"))
+
+
+rp2 <- ro %>% ggplot(aes(x=deaths, y=recovered, color = Month)) + geom_point() + facet_wrap(~Month)
+
+rp3 <- ro %>% ggplot(aes(x=deaths, y=recovered, color = Month)) + geom_point()
+
+p1 <- ggplotly(rp2)
+
+p2 <- ggplotly(rp3)
+
+p2 
+
+```
+
+The data shows that the death ratio has been low in comparison to recovery. The highest death count was recorded in the month of August at 58. Meanwhile, in the month of July, the highest number of patients recovered were recorded at 1,707. There is no particular trend in the revered to death ratio, however, death count increased in August. You can look at it yourself by interacting with the month legend just double click on the month you want to select. 
+
+```{r, include=FALSE}
 tab<- Romania %>% select(date, total_cases, new_cases,new_cases_per_million, total_deaths, new_deaths,new_tests, total_tests, stringency_index) %>% na.omit() %>% filter(date < 	"2020-03-18")%>% kable( ) %>% kable_styling(full_width = NULL,
   position = "center",
   font_size = NULL,
@@ -86,5 +148,69 @@ tab<- Romania %>% select(date, total_cases, new_cases,new_cases_per_million, tot
 tab
 ```
 
+## Romanain Governments Response
 
-## Methodology
+How did the government handle this in Romania? For this, we will be looking into the [stringency index](https://www.insightsonindia.com/2020/05/09/what-is-stringency-index/#:~:text=The%20Stringency%20Index%20is%20a%20number%20from%200,used%20by%20the%20Oxford%20COVID-19%20Government%20Response%20Tracker.), which in layman terms translates into the level of emergency imposed or the governments' response to the pandemic spread. 
+
+
+
+```{r, warning=FALSE, message= FALSE}
+int_stin <- Romania %>% ggplot(aes(x = date, 
+                                   y = stringency_index)) + 
+  geom_line(color = "blue") + 
+  geom_point(x= Romania$date, 
+             y = Romania$new_cases_per_million, 
+             col = "cyan", 
+             show.legend = TRUE) + 
+  ylim(0,90)  + 
+  scale_x_date(date_labels = "%B",
+               date_breaks = "1 month")  +
+  theme(axis.text.x = element_text(angle=45, 
+                                   hjust = 1)) 
+```
+
+
+```{r}
+ggplotly(int_stin)
+```
+
+The higher the stringency the more the measures taken to get the situation under control. With an increase in the number of cases, the Romanian Government implemented plans to implement to get control on the situation as mentioned in this [article](https://stirioficiale.ro/informatii/continuarea-masurile-de-prevenire-si-limitare-a-eventualelor-imbolnaviri-cu-noul-coronavirus). The stringency rate jumped from 16.67% to 58.33%, in March. Travel restrictions were imposed, as mentioned [here](https://stirioficiale.ro/informatii/comunicat-de-presa-20-martie-ora-9-36am). 
+
+In April fines and penalties were imposed to discourage citizens to break the lockdown regulations, as mentioned in this [article](https://stirioficiale.ro/informatii/buletin-de-presa-2-aprilie-2020-ora-13-00). The stringency index jumped from 58.33% to 87.04%. 
+
+In May some relaxation measures were taken on the previous lockdown policy, as mentioned [here](https://stirioficiale.ro/informatii/informare-de-presa-9-mai-2020-ora-1-23-pm). Dropping the stringency index from 87.045 to 75%. 
+
+In June the Romanian Government decided to relax the restrictions and resume social and economic activity. More details are provided [here](https://stirioficiale.ro/informatii/precizari-de-presa-15-iunie-2020). Further dropping the stringency index from 75% to 54.41% and towards the end of June, the index dropped to 41.67%. 
+
+After a surge in cases, the Romanian  Government announced new bylaws to be followed to get the cases under control without restricting the social and economic health of the country. All the measures are mentioned [here](https://stirioficiale.ro/informatii/informare-de-presa-21-iulie-2020-ora-11-37). With these new regulations, the stringency index increased from 41.67% to 45.37% and has been stable ever since, from July to August. 
+
+## Was the Stringency working?
+
+The figure below shows the stringency index with the new cases reported, which lets us know the effectiveness of the Romanian Government. The figure speaks for itself during the initial spike the increase in the stringency level did control the new cases reported. However, cases spiked as soon as the regulations were relaxed which is to be expected. Overall the having a direct relation between the level of stringency and new cases reported. 
+
+
+
+
+```{r, warning=FALSE, message= FALSE}
+int_stin <- Romania %>% ggplot(aes(x = date, 
+                                   y = stringency_index)) + 
+  geom_line(color = "blue") + 
+  geom_point(x= Romania$date, 
+             y = Romania$new_cases_per_million, 
+             col = "cyan", 
+             show.legend = TRUE) + 
+  ylim(0,90)  + 
+  scale_x_date(date_labels = "%B",
+               date_breaks = "1 month")  +
+  theme(axis.text.x = element_text(angle=45, 
+                                   hjust = 1)) 
+
+
+
+int_stin
+```
+
+
+
+
+

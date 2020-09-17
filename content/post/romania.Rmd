@@ -1,0 +1,89 @@
+---
+title: "Romania & CoVID-19"
+author: Muhammad Soban Qasim
+date: '2020-09-02'
+slug: pakcovid19
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-09-02T15:40:59+10:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(readr)
+library(ggplot2)
+library(dplyr)
+library(tidyverse)
+library(tidyr)
+library(plotly)
+library(coronavirus)
+library(gridExtra)
+library(lubridate)
+library(kableExtra)
+```
+
+```{r}
+c19 <- read.csv("owid-covid-data.csv")
+```
+
+
+
+# DATA Description 
+
+The data sets used are of the COVID-19 virus, containing data on all countries. The first data set contains the total cases, new cases, cases per million of the countries population, total deaths, new deaths, new tests, total tests and stingency index. The data set has extensive variables, however, not all are used in this blog. The data set was obtained form [here](https://ourworldindata.org/coronavirus-data). The first set although extensive, did not conatin the varaible of cases recovered. A second data set was used to obtain the cases recovered from [here](https://github.com/RamiKrispin/coronavirus).   
+
+## Why Romania?
+
+
+
+
+```{r}
+Romania <- c19 %>% filter(location == "Romania") %>% 
+  select(-iso_code, 
+         -continent, 
+         -location) %>% 
+  filter(date > 	"2020-02-26") %>% mutate(date = as.Date(date))
+```
+
+```{r}
+Romi <- c19 %>% filter(location == "Romania") %>% 
+  select( date, new_cases, new_tests) %>% 
+  filter(date > 	"2020-02-29")  %>% mutate(Month = month(date,label = TRUE,abbr = FALSE)) %>% na.omit() 
+```
+
+```{r}
+
+rp <- Romi %>% ggplot( aes(x= new_tests, 
+                           y = new_cases, 
+                           color = Month)) + 
+  geom_point() # + facet_wrap(~ month(date)) + geom_smooth()
+rp2 <- rp + facet_wrap(~ Month) 
+ggplotly(rp)
+```
+
+
+```{r}
+tab<- Romania %>% select(date, total_cases, new_cases,new_cases_per_million, total_deaths, new_deaths,new_tests, total_tests, stringency_index) %>% na.omit() %>% filter(date < 	"2020-03-18")%>% kable( ) %>% kable_styling(full_width = NULL,
+  position = "center",
+  font_size = NULL,
+  row_label_position = "l",
+  repeat_header_continued = FALSE,
+  stripe_color = "black",
+  stripe_index = NULL,
+  table.envir = "table",
+  fixed_thead = FALSE)
+tab
+```
+
+## Methodology

@@ -43,6 +43,23 @@ c19 <- read.csv("owid-covid-data.csv")
 
 The data sets used are of the COVID-19 virus, containing data on all countries. The first data set contains the total cases, new cases, cases per million of the countries population, total deaths, new deaths, new tests, total tests and stingency index. The data set has extensive variables, however, not all are used in this blog. The data set was obtained from [here](https://ourworldindata.org/coronavirus-data). The first set although extensive, did not contain the variable of cases recovered. A second data set was used to obtain the cases recovered from [here](https://github.com/RamiKrispin/coronavirus).   
 
+## Key Variables
+
+
+|variables         |class     |description |
+|:----------------|:--------|:----------|
+|Date               |Date   |Date for the cases recorded|
+|New_cases         |Numeric |new cases recorded on a particular day |
+|Cases_per_million |Numeric |cases recorded per million of the country's population |
+|Total_deaths            |Numeric  |total deaths recorded |
+|New_deaths       |Numeric |new deaths recorded|
+|New_tests            |Numeric |new tests conducted each day|
+|Total_tests       |Numeric |number of tests performed |
+|Stringency Index |Numeric |governments response to the pandemic|
+|recovered             |Numeric |number of covid-19 cases recovered|
+
+
+
 ## Why Romania?
 
 Romania is part of the European Union, according to [Wikipedia](https://en.wikipedia.org/wiki/Romania#Tourism),  Romania is the largest country in Southeastern Europe and the twelfth-largest in Europe, having an area of 238,397 square kilometres. According to the 2011 census, Romania's population is 20,121,641. As part of the European Union, Romania attracts a  lot of tourism; the number of tourists has been rising steadily, reaching 9.33 million foreign tourists in 2016, according to the World Bank.  
@@ -81,7 +98,9 @@ Romi <- c19 %>% filter(location == "Romania") %>%
 rp <- Romi %>% ggplot( aes(x= new_tests, 
                            y = new_cases, 
                            color = Month)) + 
-  geom_point() 
+  geom_point() +  
+  labs(title = "New cases reported with new tests performed in Romania"
+            )
 
 rp2 <- rp + facet_wrap(~ Month) 
 
@@ -123,13 +142,13 @@ ro$Month<- factor(ro$Month, levels = c("March", "April", "May", "June", "July","
 
 rp2 <- ro %>% ggplot(aes(x=deaths, y=recovered, color = Month)) + geom_point() + facet_wrap(~Month)
 
-rp3 <- ro %>% ggplot(aes(x=deaths, y=recovered, color = Month)) + geom_point()
+rp3 <- ro %>% ggplot(aes(x=deaths, y=recovered, color = Month)) + geom_point() +  labs(title = "Recovered to Death ratio of covid-19 positive cases in Romania") + xlab("new_deaths")
 
 p1 <- ggplotly(rp2)
 
 p2 <- ggplotly(rp3)
 
-p2 
+p2  
 
 ```
 
@@ -166,7 +185,7 @@ int_stin <- Romania %>% ggplot(aes(x = date,
   scale_x_date(date_labels = "%B",
                date_breaks = "1 month")  +
   theme(axis.text.x = element_text(angle=45, 
-                                   hjust = 1)) 
+                                   hjust = 1)) +  labs(title = "Levels of Stringency applied by the Romanian Government")
 ```
 
 
@@ -207,7 +226,7 @@ int_stin <- Romania %>% ggplot(aes(x = date,
 
 
 
-int_stin
+int_stin +  labs(title = "Stringency Index and new cases reported each day. Was it working?")
 ```
 
 

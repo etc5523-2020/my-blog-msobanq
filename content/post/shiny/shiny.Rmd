@@ -1,0 +1,154 @@
+---
+title: My Shiny App
+author: Muhammad Soban Qasim
+date: '2020-09-02'
+slug: mshinyapp
+categories: []
+tags: []
+subtitle: ''
+summary: ''
+authors: []
+lastmod: '2020-09-02T15:40:59+10:00'
+featured: no
+image:
+  caption: ''
+  focal_point: ''
+  preview_only: no
+projects: []
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+library(blogdown)
+library(dplyr)
+library(rnaturalearth)
+library(ggplot2)
+library(plotly)
+```
+
+# __Introduction__ 
+
+My shiny [app](https://mqas0003.shinyapps.io/covid_assignment/) is wrapped around COVID-19 data, instead of targeting the whole world, it targets most of the Asian countries being the most densely populated continent, also being the birthplace of the pandemic, which is speculation at best according to some sources. 
+
+Instead of looking at the mainstream death rates recoveries and cases, My app is built around other factors and variables which might have an impact on the outcome of cases in each country. The app does not give a final say if a variable has a direct impact on covid-19 or cases. Everything in it is open to interpretation, and the user gets to drive their own conclusions. 
+
+For example, The plot [*Stringency Index*]((https://www.insightsonindia.com/2020/05/09/what-is-stringency-index/#:~:text=The%20Stringency%20Index%20is%20a%20number%20from%200,used%20by%20the%20Oxford%20COVID-19%20Government%20Response%20Tracker.)) section of the app, helps the user identify any Asian countries level of stringency. Which helps users understand which countries took the most measures against Covid-19. Not only that but the user can compare the level of Stringency between countries. Especially the ones you are interested in. 
+
+The next tab *Interact* takes the user to the plot where the user can input three variables of their choice from the drop-down menus, to interact with the plot. To determine which variables might be effecting the countries stringency index. Or other factors which may or may not play a role in the number of cases or deaths due to Covid-19. 
+
+The third and last tab *Table*, helps the user identify the trend in terms of COVID-19 cases to make sense of my there were so many different levels or why the stringency index changed over time.
+
+To use the app click [here](https://mqas0003.shinyapps.io/covid_assignment/).
+
+```{r, message=FALSE, warning=FALSE}
+continent <- ne_countries(returnclass = "sf", country = c("Afghanistan", 
+                                             "Armenia", 
+                                             "Azerbaijan", 
+                                             "Bahrian", 
+                                             "Bangladesh", 
+                                             "Bhutan", 
+                                             "Brunei", 
+                                             "Cambodia", 
+                                             "China", 
+                                             "Georgia", 
+                                             "India", 
+                                             "Indonesia", 
+                                             "Iran", 
+                                             "Iraq", 
+                                             "Japan", 
+                                             "Jordan", 
+                                             "Kazakhastan", 
+                                             "Kuwait", 
+                                             "Kyrgyzstan", 
+                                             "Laos", 
+                                             "Lebanon", 
+                                             "Malaysia", 
+                                             "Maldives", 
+                                             "Mongolia", 
+                                             "Mayanmar", 
+                                             "Nepal", 
+                                             "Oman", 
+                                             "Pakistan", 
+                                             "Palestine", 
+                                             "Philippines", 
+                                             "Qatar", 
+                                             "Saudi Arabia", 
+                                             "Singapore", 
+                                             "South Korea",
+                                             "Sri Lanka", 
+                                             "Syria", 
+                                             "Taiwan", 
+                                             "Tajikistan", 
+                                             "Thailand", 
+                                             "Timor", 
+                                             "Turkey", 
+                                             "United Arab Emirates", 
+                                             "Uzbekistan", 
+                                             "Vietnam", 
+                                             "Yemen")) %>%
+  ggplot() +
+  geom_sf(aes(geometry = geometry)) +
+  geom_sf_text(aes(label = name), size = 2) + 
+  xlab("Longitude") +
+  ylab("Latitude") + ggtitle(label = "Map of Asia") 
+ggplotly(continent) 
+```
+
+
+
+
+# __Self Review__
+
+__What did you do well?__
+
+I believe that I used other variables as opposed to only death rates and other factors. I tried distancing it from mainstream news and articles where you can easily get information on the topic. 
+
+– __What are the points you can improve on?__
+
+The overall look of the app can certainly be improved, although visual appearance and beauty is subjective it can always be improved. 
+
+
+– __What are some things that you’d like to add that’s plausible?__
+
+The app might be tricky to new users however, using the hints given throughout the app might prove helpful. And once the user learns by trial and error the user will be able to use the app as intended. Depending on the users drive.
+
+– __What are some things that you’d like to add that cannot be done yet due to limitation in data or technology?__
+
+I feel like there are limitations with data. I would like to have data:
+ 
+* According to hospitals and regions that is extensive.
+
+* The name and location of the hospitals.
+
+* The hospital's capacity.
+
+* Total covid-19 patients that were admitted in a particular hospital. 
+
+* How many patients survived and died in which hospitals?
+
+* Critical levels of patients diagnosed with covid-19. 
+
+* How much did it cost the patient to get treatment for covid-19 at their hospital?
+
+Also, most countries do not have a well-defined region, the outer borders are easy to get but, inner borders between states and provinces are a bit tricky. Especially on a global scale.  
+
+# References 
+
+Shiny.rstudio.com. 2020. Shiny. [online] Available at: <https://shiny.rstudio.com/> [Accessed 15 October 2020].
+
+What is Stringency Index? - INSIGHTSIAS. (2020). Retrieved 18 September 2020, from https://www.insightsonindia.com/2020/05/09/what-is-stringency-index/#:~:text=The%20Stringency%20Index%20is%20a%20number%20from%200,used%20by%20the%20Oxford%20COVID-19%20Government%20Response%20Tracker.
+
+## Packages
+
+v3.3.2, g. (2020). ggplot2 package | R Documentation. Retrieved 18 September 2020, from https://www.rdocumentation.org/packages/ggplot2/versions/3.3.2
+
+plotly/plotly.py. (2020). Retrieved 18 September 2020, from https://github.com/plotly/plotly.py
+
+v0.7.8, d. (2020). dplyr package | R Documentation. Retrieved 18 September 2020, from https://www.rdocumentation.org/packages/dplyr/versions/0.7.8
+
+v0.1.0, r., 2020. Rnaturalearth Package | R Documentation. [online] Rdocumentation.org. Available at: <https://www.rdocumentation.org/packages/rnaturalearth/versions/0.1.0> [Accessed 15 October 2020].
+
+Cran.r-project.org. 2020. [online] Available at: <https://cran.r-project.org/web/packages/blogdown/blogdown.pdf> [Accessed 15 October 2020].
+
+

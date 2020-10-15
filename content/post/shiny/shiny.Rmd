@@ -38,7 +38,7 @@ For example, The plot [*Stringency Index*]((https://www.insightsonindia.com/2020
 The next tab *Interact* takes the user to the plot where the user can input three variables of their choice from the drop-down menus, to interact with the plot. To determine which variables might be effecting the countries stringency index. Or other factors which may or may not play a role in the number of cases or deaths due to Covid-19. 
 
 The third and last tab *Table*, helps the user identify the trend in terms of COVID-19 cases to make sense of my there were so many different levels or why the stringency index changed over time.
-
+  
 To use the app click [here](https://mqas0003.shinyapps.io/covid_assignment/).
 
 ```{r, message=FALSE, warning=FALSE}

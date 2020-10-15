@@ -47,7 +47,7 @@ subtitle = ""
 [[feature]]
   icon = "github"
   icon_pack = "fab"
-  name = "SQL"
+  name = "Github"
   description = "50%"
 
 # Uncomment to use emoji icons.

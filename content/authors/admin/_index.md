@@ -31,7 +31,7 @@ user_groups:
 - Principal Investigators
 ---
 
-Muhammad Soban Qasim is a student of business analytics at Monash University. His current interests include working with data to do exploratory data and communicating with data applying a statistical approach. 
+Muhammad Soban Qasim is a student of business analytics at Monash University. His current interests include working with data to do exploratory data analysis and communicating with data applying a statistical approach. 
 
 
 

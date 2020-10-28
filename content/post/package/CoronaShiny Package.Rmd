@@ -1,0 +1,60 @@
+---
+title: "package"
+author: "Muhammad Soban Qasim"
+date: "24/10/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(blogdown)
+```
+
+# Package 
+
+In this blog I will be talking about packages, what do they entail and what is a good package like and then we will be reviewing a package made by a colleague of mine. The name of the package is CoronaShiny.  The author of the Package is [Vinny Vu](https://github.com/vvuu0009).  You can check it out on [git](https://github.com/etc5523-2020/r-package-assessment-vvuu0009). The package is wrapped around the corona virus pandemic and has an inbuilt shiny-app inside the package. We will discuss what the package entails a bit later on.
+
+
+
+##  What did I think this package would do? Did it do it?
+
+The idea I got for what the package contains and what I can use from it, is that the package contains an app helping users interact and get visulaizations on the cumulative cases of corona-virus in each continant.  
+
+##  Are the improvements that could be made to the code? Are there improvements that could be made to the shiny app inside the package? Is the documentation sufficient to get started?
+
+
+
+##  learned from reviewing the package
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Package Review
+*Please check off boxes as applicable, and elaborate in comments below.*
+#### Documentation
+The package includes all the following forms of documentation:
+- [ ] **Installation instructions:** for the package is found in README
+- [ ] **Vignette(s)** demonstrating major functionality that runs successfully locally
+- [ ] **Function Documentation:** for all exported functions in R help
+- [ ] **Examples** for all exported functions in R Help that run successfully locally
+#### Functionality
+- [ ] **Installation:** Installation succeeds as documented.
+- [ ] **Functionality:** Any functional claims of the software been confirmed.
+- [ ] **Automated tests:** Unit tests cover essential functions of the package
+and a reasonable range of inputs and conditions. All tests pass on the local machine.

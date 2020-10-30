@@ -38,7 +38,7 @@ Although the shiny application is wonderful the application only offers mainstre
 
 ## Is the documentation sufficient to get started?
 
-The documentation is accurate and to the point helping you navigate through the application and package effectively. 
+The documentation is accurate and to the point helping you navigate through the application and package effectively. I found the pkgdown website the most helpful it had everything I needed to know about the package. Here is the [link](https://etc5523-2020.github.io/r-package-assessment-vvuu0009/) to the website.
 
 
 ##  What did I learn from reviewing the package?
@@ -64,7 +64,7 @@ A lot of effort and work goes into making a package, you can not just make a pac
 
 ## **Package Review**
 
-*Please check off boxes as applicable, and elaborate in comments below.*
+*Checking off boxes as applicable, and elaborate in comments below.*
 
 #### Documentation
 

@@ -12,7 +12,7 @@ library(blogdown)
 
 # Package 
 
-In this blog I will be talking about packages, what do they entail and what is a good package like and then we will be reviewing a package made by a colleague of mine. The name of the package is CoronaShiny.  The author of the Package is [Vinny Vu](https://github.com/vvuu0009).  You can check it out on [git](https://github.com/etc5523-2020/r-package-assessment-vvuu0009). The package is wrapped around the coronavirus pandemic and has an inbuilt shiny-app inside the package. We will discuss what the package entails a bit later on.
+In this blog I will be talking about packages, what do they entail and what is a good package like and then we will be reviewing a package made by a colleague of mine. The name of the package is CoronaShiny.  The author of the Package is [Vinny Vu](https://github.com/vvuu0009).  You can check it out on [github](https://github.com/etc5523-2020/r-package-assessment-vvuu0009). The package is wrapped around the coronavirus pandemic and has an inbuilt shiny-app inside the package. We will discuss what the package entails a bit later on.
 
 
 
@@ -24,12 +24,26 @@ Using the package CoronaShiny, provided as promised. It is simple to use with no
 
 # About the APP
 
-##  Are the improvements that could be made to the code? Are there improvements that could be made to the shiny app inside the package? Is the documentation sufficient to get started?
+The shiny application helps users explore summary figures of confirmed cases, confirmed deaths, and recovered cases across different continents with the use of line-graphs and summary data tables. The application further, explores six countries with the highest cumulative coronavirus confirmed cases using line-graphs. Finally, a data table showing the total case numbers, to compare case numbers across all countries.
 
+
+##  Are there improvements that could be made to the code?  
+
+Improving code is subjective, everyone has their own style of coding, for a greater audience and for greater understanding simple code is better. However, more functions can be made to draw out parts of the shiny app instead of launching the whole app. They can be easily called out and played around with, by the user to suit their needs. 
+
+## Are there improvements that could be made to the shiny app inside the package?
+
+Although the shiny application is wonderful the application only offers mainstream plots, the app does not have a niche factor. Other variables can be introduced to the application or different type of helping visualizations to make the app stand out.  
+
+
+## Is the documentation sufficient to get started?
+
+The documentation is accurate and to the point helping you navigate through the application and package effectively. 
 
 
 ##  What did I learn from reviewing the package?
 
+A lot of effort and work goes into making a package, you can not just make a package and make it available for others to use. You also have to document everything that what you did, not only for first-time users to understand what the package is all about but also for your future self. 
 
 
 
@@ -48,17 +62,26 @@ Using the package CoronaShiny, provided as promised. It is simple to use with no
 
 
 
+## **Package Review**
 
-## Package Review
 *Please check off boxes as applicable, and elaborate in comments below.*
+
 #### Documentation
+
 The package includes all the following forms of documentation:
-- [ ] **Installation instructions:** for the package is found in README
-- [ ] **Vignette(s)** demonstrating major functionality that runs successfully locally
-- [ ] **Function Documentation:** for all exported functions in R help
-- [ ] **Examples** for all exported functions in R Help that run successfully locally
+
+- [X] **Installation instructions:** for the package is found in README
+
+- [X] **Vignette(s)** demonstrating major functionality that runs successfully locally
+
+- [X] **Function Documentation:** for all exported functions in R help
+
+- [X] **Examples** for all exported functions in R Help that run successfully locally
+
 #### Functionality
-- [ ] **Installation:** Installation succeeds as documented.
-- [ ] **Functionality:** Any functional claims of the software been confirmed.
-- [ ] **Automated tests:** Unit tests cover essential functions of the package
-and a reasonable range of inputs and conditions. All tests pass on the local machine.
+
+- [X] **Installation:** Installation succeeds as documented.
+
+- [X] **Functionality:** Any functional claims of the software been confirmed.
+
+- [X] **Automated tests:** Unit tests cover essential functions of the package and a reasonable range of inputs and conditions. All tests pass on the local machine.

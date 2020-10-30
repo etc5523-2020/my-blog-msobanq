@@ -11,7 +11,7 @@ output: html_document
 
 <div id="package" class="section level1">
 <h1>Package</h1>
-<p>In this blog I will be talking about packages, what do they entail and what is a good package like and then we will be reviewing a package made by a colleague of mine. The name of the package is CoronaShiny. The author of the Package is <a href="https://github.com/vvuu0009">Vinny Vu</a>. You can check it out on <a href="https://github.com/etc5523-2020/r-package-assessment-vvuu0009">git</a>. The package is wrapped around the coronavirus pandemic and has an inbuilt shiny-app inside the package. We will discuss what the package entails a bit later on.</p>
+<p>In this blog I will be talking about packages, what do they entail and what is a good package like and then we will be reviewing a package made by a colleague of mine. The name of the package is CoronaShiny. The author of the Package is <a href="https://github.com/vvuu0009">Vinny Vu</a>. You can check it out on <a href="https://github.com/etc5523-2020/r-package-assessment-vvuu0009">github</a>. The package is wrapped around the coronavirus pandemic and has an inbuilt shiny-app inside the package. We will discuss what the package entails a bit later on.</p>
 <div id="what-did-i-think-this-package-would-do-did-it-do-it" class="section level2">
 <h2>What did I think this package would do? Did it do it?</h2>
 <p>The idea I got for what the package contains and what I can use from it, is that the package contains an app helping users interact and get visualizations on the cumulative cases of corona-virus in each continent. The package has been designed to launch the app with the <em>launch_app()</em> function. Also, the package has an inbuilt function of <em>selectInput01</em>, the function helps the user to update the app inputs directly from the function instead of indulging in a lengthy process of customized coding for each input. This is what I understood from reading the README file on the git repository.</p>
@@ -20,25 +20,50 @@ output: html_document
 </div>
 <div id="about-the-app" class="section level1">
 <h1>About the APP</h1>
-<div id="are-the-improvements-that-could-be-made-to-the-code-are-there-improvements-that-could-be-made-to-the-shiny-app-inside-the-package-is-the-documentation-sufficient-to-get-started" class="section level2">
-<h2>Are the improvements that could be made to the code? Are there improvements that could be made to the shiny app inside the package? Is the documentation sufficient to get started?</h2>
+<p>The shiny application helps users explore summary figures of confirmed cases, confirmed deaths, and recovered cases across different continents with the use of line-graphs and summary data tables. The application further, explores six countries with the highest cumulative coronavirus confirmed cases using line-graphs. Finally, a data table showing the total case numbers, to compare case numbers across all countries.</p>
+<div id="are-there-improvements-that-could-be-made-to-the-code" class="section level2">
+<h2>Are there improvements that could be made to the code?</h2>
+<p>Improving code is subjective, everyone has their own style of coding, for a greater audience and for greater understanding simple code is better. However, more functions can be made to draw out parts of the shiny app instead of launching the whole app. They can be easily called out and played around with, by the user to suit their needs.</p>
+</div>
+<div id="are-there-improvements-that-could-be-made-to-the-shiny-app-inside-the-package" class="section level2">
+<h2>Are there improvements that could be made to the shiny app inside the package?</h2>
+<p>Although the shiny application is wonderful the application only offers mainstream plots, the app does not have a niche factor. Other variables can be introduced to the application or different type of helping visualizations to make the app stand out.</p>
+</div>
+<div id="is-the-documentation-sufficient-to-get-started" class="section level2">
+<h2>Is the documentation sufficient to get started?</h2>
+<p>The documentation is accurate and to the point helping you navigate through the application and package effectively.</p>
 </div>
 <div id="what-did-i-learn-from-reviewing-the-package" class="section level2">
 <h2>What did I learn from reviewing the package?</h2>
+<p>A lot of effort and work goes into making a package, you can not just make a package and make it available for others to use. You also have to document everything that what you did, not only for first-time users to understand what the package is all about but also for your future self.</p>
 </div>
 <div id="package-review" class="section level2">
-<h2>Package Review</h2>
-<p><em>Please check off boxes as applicable, and elaborate in comments below.</em>
-#### Documentation
-The package includes all the following forms of documentation:
-- [ ] <strong>Installation instructions:</strong> for the package is found in README
-- [ ] <strong>Vignette(s)</strong> demonstrating major functionality that runs successfully locally
-- [ ] <strong>Function Documentation:</strong> for all exported functions in R help
-- [ ] <strong>Examples</strong> for all exported functions in R Help that run successfully locally
-#### Functionality
-- [ ] <strong>Installation:</strong> Installation succeeds as documented.
-- [ ] <strong>Functionality:</strong> Any functional claims of the software been confirmed.
-- [ ] <strong>Automated tests:</strong> Unit tests cover essential functions of the package
-and a reasonable range of inputs and conditions. All tests pass on the local machine.</p>
+<h2><strong>Package Review</strong></h2>
+<p><em>Please check off boxes as applicable, and elaborate in comments below.</em></p>
+<div id="documentation" class="section level4">
+<h4>Documentation</h4>
+<p>The package includes all the following forms of documentation:</p>
+<ul>
+<li><p><input type="checkbox" disabled="" checked="" />
+<strong>Installation instructions:</strong> for the package is found in README</p></li>
+<li><p><input type="checkbox" disabled="" checked="" />
+<strong>Vignette(s)</strong> demonstrating major functionality that runs successfully locally</p></li>
+<li><p><input type="checkbox" disabled="" checked="" />
+<strong>Function Documentation:</strong> for all exported functions in R help</p></li>
+<li><p><input type="checkbox" disabled="" checked="" />
+<strong>Examples</strong> for all exported functions in R Help that run successfully locally</p></li>
+</ul>
+</div>
+<div id="functionality" class="section level4">
+<h4>Functionality</h4>
+<ul>
+<li><p><input type="checkbox" disabled="" checked="" />
+<strong>Installation:</strong> Installation succeeds as documented.</p></li>
+<li><p><input type="checkbox" disabled="" checked="" />
+<strong>Functionality:</strong> Any functional claims of the software been confirmed.</p></li>
+<li><p><input type="checkbox" disabled="" checked="" />
+<strong>Automated tests:</strong> Unit tests cover essential functions of the package and a reasonable range of inputs and conditions. All tests pass on the local machine.</p></li>
+</ul>
+</div>
 </div>
 </div>
